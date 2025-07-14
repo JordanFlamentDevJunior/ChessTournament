@@ -59,8 +59,12 @@
     <Folder Include="Table" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Table\Personne.sql" />
-    <Build Include="Table\Genre.sql" />
+    <Build Include="Table\Person.sql" />
+    <Build Include="Table\Gender.sql" />
     <Build Include="Table\Role.sql" />
+    <Build Include="Table\Place.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DB_Tounement.refactorlog" />
   </ItemGroup>
 </Project>

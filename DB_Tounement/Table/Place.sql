@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Place]
+(
+	[Id] TINYINT NOT NULL PRIMARY KEY
+)
