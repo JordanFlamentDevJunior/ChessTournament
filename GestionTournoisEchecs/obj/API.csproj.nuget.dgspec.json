@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj": {}
+    "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj": {
+    "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj",
+        "projectPath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj",
         "packagesPath": "C:\\Users\\Flame\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\GestionTournoisEchecs\\obj\\",
+        "outputPath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\GestionTournoisEchecs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
