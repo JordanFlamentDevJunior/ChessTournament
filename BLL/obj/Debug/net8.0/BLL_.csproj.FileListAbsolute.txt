@@ -1,0 +1,6 @@
+C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL_.csproj.AssemblyReference.cache
+C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL_.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL_.AssemblyInfoInputs.cache
+C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL_.AssemblyInfo.cs
+C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL_.csproj.CoreCompileInputs.cache
+C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL_.sourcelink.json

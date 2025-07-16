@@ -1,4 +1,4 @@
-﻿using DAL.CategoryRepository
+﻿using DAL.CategoryRepository;
 using Models.Category;
 
 namespace BLL.CategoryService

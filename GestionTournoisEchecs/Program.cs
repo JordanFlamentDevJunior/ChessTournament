@@ -11,7 +11,7 @@ namespace API
             var builder = WebApplication.CreateBuilder(args);
 
             // chaine de connexion à la base de données
-            string connectionString = builder.Configuration.GetConnectionString("ConnectionStrings");
+            string connectionString = builder.Configuration.GetConnectionString("ConnectionStringsP");
             builder.Services.AddSingleton(new SqlConnection(connectionString));
 
             // Add services to the container.
