@@ -60,6 +60,7 @@
     <Folder Include="Procedures" />
     <Folder Include="Procedures\Category" />
     <Folder Include="Procedures\Auxiliaire" />
+    <Folder Include="View" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Person.sql" />
@@ -72,9 +73,12 @@
     <Build Include="Tables\Tournament.sql" />
     <Build Include="Tables\Participation.sql" />
     <Build Include="Tables\meet.sql" />
-    <Build Include="Procedures\AddCategory.sql" />
-    <Build Include="Procedures\UpdateCategory.sql" />
-    <Build Include="Procedures\DeleteCategory.sql" />
+    <Build Include="Procedures\Auxiliaire\CheckCatAgeExists.sql" />
+    <Build Include="Procedures\Auxiliaire\CheckCatNameExist.sql" />
+    <Build Include="Procedures\Category\SP_AddCategory.sql" />
+    <Build Include="Procedures\Category\SP_UpdateCategory.sql" />
+    <Build Include="Procedures\Category\SP_DeleteCategory.sql" />
+    <Build Include="View\ViewCategory.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_Tounement.refactorlog" />

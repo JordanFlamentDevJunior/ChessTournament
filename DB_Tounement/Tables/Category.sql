@@ -9,5 +9,5 @@
 	CONSTRAINT [CK_Category_Name] CHECK ([Name_Category] IN (N'Junior', N'Senior', N'Veteran')),
 	CONSTRAINT [CK_Category_MinAge] CHECK ([MinAge] BETWEEN 4 AND [MaxAge]),
 	CONSTRAINT [CK_Category_MaxAge_positif] CHECK ([MaxAge] > [MinAge]),
-	CONSTRAINT [CK_Category_MaxAge] CHECK ([MaxAge] <= 130)
-)
+	CONSTRAINT [CK_Category_MaxAge] CHECK ([MaxAge] <= 127)
+);

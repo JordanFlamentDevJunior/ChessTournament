@@ -1,0 +1,6 @@
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.sourcelink.json
