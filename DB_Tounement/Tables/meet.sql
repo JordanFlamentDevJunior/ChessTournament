@@ -17,5 +17,5 @@
     CONSTRAINT [CK_meet_coherence_player] CHECK ([Id_P_White] != [Id_P_Black]),
 
     CONSTRAINT [FK_meet_Id_P_W] FOREIGN KEY ([Id_P_White]) REFERENCES [dbo].[Person]([Id_Person]),
-    CONSTRAINT [FK_meet_Id_P_B] FOREIGN KEY ([Id_P_Black]) REFERENCES [dbo].[Person]([Id_Person]),
+    CONSTRAINT [FK_meet_Id_P_B] FOREIGN KEY ([Id_P_Black]) REFERENCES [dbo].[Person]([Id_Person])
 )

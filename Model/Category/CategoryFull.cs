@@ -2,9 +2,9 @@
 {
     public class CategoryFull
     {
-        public Guid Id { get; set; }
+        public byte IdCategory { get; set; }
         public string NameCategory { get; set; }
-        public int MinAge { get; set; }
-        public int MaxAge { get; set; }
+        public byte MinAge { get; set; }
+        public byte MaxAge { get; set; }
     }
 }

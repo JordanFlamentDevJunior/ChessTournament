@@ -643,10 +643,21 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "APITournamentException/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/APITournamentException.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/APITournamentException.dll": {}
+        }
+      },
       "DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "APITournamentException": "1.0.0",
           "Microsoft.Data.SqlClient": "6.0.2",
           "Models": "1.0.0"
         },
@@ -1683,6 +1694,11 @@
         "version.txt"
       ]
     },
+    "APITournamentException/1.0.0": {
+      "type": "project",
+      "path": "../Exception/APITournamentException.csproj",
+      "msbuildProject": "../Exception/APITournamentException.csproj"
+    },
     "DAL/1.0.0": {
       "type": "project",
       "path": "../DAL/DAL.csproj",
@@ -1696,6 +1712,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "APITournamentException >= 1.0.0",
       "DAL >= 1.0.0",
       "Models >= 1.0.0"
     ]
@@ -1707,11 +1724,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\BLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\Flame\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\BLL\\obj\\",
+      "outputPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1733,11 +1750,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\DAL\\DAL.csproj"
+            "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\Model\\Models.csproj": {
-              "projectPath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\Model\\Models.csproj"
+            "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\Exception\\APITournamentException.csproj": {
+              "projectPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\Exception\\APITournamentException.csproj"
+            },
+            "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\Model\\Models.csproj": {
+              "projectPath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\Model\\Models.csproj"
             }
           }
         }

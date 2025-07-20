@@ -57,10 +57,18 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
-    <Folder Include="Procedures" />
-    <Folder Include="Procedures\Category" />
-    <Folder Include="Procedures\Auxiliaire" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Stored Procedures\Category" />
+    <Folder Include="Stored Procedures\Historic" />
     <Folder Include="View" />
+    <Folder Include="Stored Procedures\Gender" />
+    <Folder Include="Stored Procedures\Role" />
+    <Folder Include="Stored Procedures\Metting" />
+    <Folder Include="Stored Procedures\Participation" />
+    <Folder Include="Stored Procedures\Person" />
+    <Folder Include="Stored Procedures\Place" />
+    <Folder Include="Stored Procedures\Status" />
+    <Folder Include="Stored Procedures\Tournament" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Person.sql" />
@@ -73,14 +81,23 @@
     <Build Include="Tables\Tournament.sql" />
     <Build Include="Tables\Participation.sql" />
     <Build Include="Tables\meet.sql" />
-    <Build Include="Procedures\Auxiliaire\CheckCatAgeExists.sql" />
-    <Build Include="Procedures\Auxiliaire\CheckCatNameExist.sql" />
-    <Build Include="Procedures\Category\SP_AddCategory.sql" />
-    <Build Include="Procedures\Category\SP_UpdateCategory.sql" />
-    <Build Include="Procedures\Category\SP_DeleteCategory.sql" />
     <Build Include="View\ViewCategory.sql" />
+    <Build Include="Stored Procedures\Category\SP_AddCategory.sql" />
+    <Build Include="Stored Procedures\Category\SP_DeleteCategory.sql" />
+    <Build Include="Stored Procedures\Category\SP_UpdateCategory.sql" />
+    <Build Include="Stored Procedures\Gender\SP_AddGender.sql" />
+    <Build Include="Stored Procedures\Gender\SP_DeleteGender.sql" />
+    <Build Include="Stored Procedures\Role\SP_AddRole.sql" />
+    <Build Include="Stored Procedures\Role\SP_DeleteRole.sql" />
+    <Build Include="Stored Procedures\Role\CheckRoleNameExists.sql" />
+    <Build Include="Stored Procedures\Gender\CheckGenNameExist.sql" />
+    <Build Include="Stored Procedures\Category\CheckCatAgeExists.sql" />
+    <Build Include="Stored Procedures\Category\CheckCatNameExist.sql" />
+    <Build Include="Stored Procedures\Status\CheckStatNameExist.sql" />
+    <Build Include="Stored Procedures\Status\SP_AddStatus.sql" />
+    <Build Include="Stored Procedures\Status\SP_DeleteStatus.sql" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="DB_Tounement.refactorlog" />
+    <None Include="DB_Tounement.publish.xml" />
   </ItemGroup>
 </Project>

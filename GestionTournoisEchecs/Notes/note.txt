@@ -1,0 +1,29 @@
+﻿///////////////////////////////// MAINTENANT //////////////////////////////////////
+- faire les exceptions et try catch
+
+- Commenter le code
+
+- ajouter sécurité dans le code API que les champs respectent les contraintes SQL et métier
+
+- faire tous les API_Side
+	- Place
+	- Person
+	- Tournament
+	- participation
+	- meeting
+	- historique
+
+- Ajouter la contrainte de connexion 
+
+- ajouter contraite de mot de passe has
+
+- ajouter contrainte d'Authorisation
+
+- developper déroulement de tournois (démarrer tournois, arrêter tournois, changer ronde, modifier résultat d'un tournois, ajouter point a l'utilisateur))
+
+- ajouter liste des tournois en cours / a venir / passés
+
+- ajouter liste des utilisateurs / joueurs et resultats
+
+////////////////////////////////////// + TARD //////////////////////////////////////
+- m'occuper de la tranche d'age

@@ -30,7 +30,7 @@
     CONSTRAINT [CK_Tournament_DateCreation_B] CHECK ([DateCreation] <= [DateEndRegisteration]),
     CONSTRAINT [CK_Tournament_DateLastMaj_A] CHECK ([DateLastMaj] <= GETDATE()), -- Ne peut pas se faire dans le futur
     CONSTRAINT [CK_Tournament_DateLastMaj_B] CHECK ([DateLastMaj] >= [DateCreation]), -- ne peut pas se faire avant la date de creation
-    CONSTRAINT [CK_Tournament_DateEnd] CHECK ([DateEndRegisteration] > ([DateCreation]+[PlayerMax])), -- Doit être égale a la date de création + le nombre de joueurs recherché
+    CONSTRAINT [CK_Tournament_DateEnd] CHECK ([DateEndRegisteration] > DATEADD(day, [PlayerMax], [DateCreation])), -- Doit être égale a la date de création + le nombre de joueurs recherché
     CONSTRAINT [CK_Tournament_Nbr_Ronde_A] CHECK ([Nbr_Ronde] >= 0),
     CONSTRAINT [CK_Tournament_Nbr_Ronde_B] CHECK ([Nbr_Ronde] <= (([PlayerMax]*[PlayerMax])-1)), -- ne peut pas être inférieur a PlayerMax²-1
     CONSTRAINT [CK_Tournament_Place] CHECK ([Id_Place] >= 0),

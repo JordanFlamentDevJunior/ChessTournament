@@ -8,7 +8,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\Exception\APITournamentException.csproj" />
     <ProjectReference Include="..\Model\Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HistoricTournamentService\" />
+    <Folder Include="MeetingService\" />
+    <Folder Include="ParticipationService\" />
+    <Folder Include="PersonService\" />
+    <Folder Include="PlaceService\" />
+    <Folder Include="TournamentService\" />
   </ItemGroup>
 
 </Project>

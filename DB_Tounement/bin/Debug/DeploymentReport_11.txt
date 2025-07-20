@@ -1,0 +1,58 @@
+﻿** Met en surbrillance
+     Tables qui seront recréées avec les données migrées
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Supprimer
+       [dbo].[CK_Category_Id] (Contrainte de validation)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Category_Name] (Contrainte de validation)
+       [dbo].[CK_Gender_Id] (Contrainte de validation)
+       [dbo].[CK_Genre_ValueGender] (Contrainte de validation)
+       [dbo].[CK_Historic_Id_Status] (Contrainte de validation)
+       [dbo].[CK_MAJ_Id] (Contrainte de validation)
+       [dbo].[CK_meet_IdTournament_pos] (Contrainte de validation)
+       [dbo].[CK_meet_numRonde_coherence] (Contrainte de validation)
+       [dbo].[CK_Participation_IdTournament] (Contrainte de validation)
+       [dbo].[CK_Person_Gender] (Contrainte de validation)
+       [dbo].[CK_Person_Role] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Id] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CK_Role_Id] (Contrainte de validation)
+       [dbo].[CK_Role_ValueRole] (Contrainte de validation)
+       [dbo].[CK_Status_Id] (Contrainte de validation)
+       [dbo].[CK_Status_Value] (Contrainte de validation)
+       [dbo].[CK_Tournament_Status] (Contrainte de validation)
+     Créer
+       [dbo].[CK_Category_Id] (Contrainte de validation)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Category_Name] (Contrainte de validation)
+       [dbo].[CK_Gender_Id] (Contrainte de validation)
+       [dbo].[CK_Genre_ValueGender] (Contrainte de validation)
+       [dbo].[CK_Historic_Id_Status] (Contrainte de validation)
+       [dbo].[CK_MAJ_Id] (Contrainte de validation)
+       [dbo].[CK_meet_IdTournament_pos] (Contrainte de validation)
+       [dbo].[CK_meet_numRonde_coherence] (Contrainte de validation)
+       [dbo].[CK_Participation_IdTournament] (Contrainte de validation)
+       [dbo].[CK_Person_Gender] (Contrainte de validation)
+       [dbo].[CK_Person_Role] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Id] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CK_Role_Id] (Contrainte de validation)
+       [dbo].[CK_Role_ValueRole] (Contrainte de validation)
+       [dbo].[CK_Status_Id] (Contrainte de validation)
+       [dbo].[CK_Status_Value] (Contrainte de validation)
+       [dbo].[CK_Tournament_Status] (Contrainte de validation)
+       [dbo].[CheckGenNameExists] (Procédure)
+       [dbo].[DeleteGender] (Procédure)
+       [dbo].[AddGender] (Procédure)
+
+** Actions de support

@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="HistoricTournament\" />
+    <Folder Include="Meeting\" />
+    <Folder Include="Tournament\" />
+    <Folder Include="Place\" />
+    <Folder Include="Person\" />
+    <Folder Include="Participation\" />
+  </ItemGroup>
+
 </Project>

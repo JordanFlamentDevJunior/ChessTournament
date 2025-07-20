@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="DB_Tounement.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\FLAME\DOCUMENTS\DEVELOPPEMENT\CODE\ESS4IT\C#\LABO_TECHNOFUTURTIC\CHESSTOURNAMENT\DB_TOUNEMENT\OBJ\DEBUG\DB_TOUNEMENT.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\FLAME\DOCUMENTS\LABO_TECHNOFUTURTIC\CHESSTOURNAMENT\DB_TOUNEMENT\OBJ\DEBUG\DB_TOUNEMENT.DLL" />
 			<Metadata Name="AssemblyName" Value="DB_Tounement" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
@@ -142,182 +142,6 @@
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[0]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[WomenOnly]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[2]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[PlayerMin]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[32]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[PlayerMax]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[0]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[NbrPlayerRegistered]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[0]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[MinElo]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[3000]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[MaxElo]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[GETDATE()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[DateCreation]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[GETDATE()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[DateLastMaj]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[0]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[Nbr_Ronde]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[0]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[Id_Place]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[0]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tournament].[Id_Status]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
 				<Value><![CDATA[GETDATE()]]></Value>
 			</Property>
 			<Relationship Name="DefiningTable">
@@ -330,7 +154,7 @@
 					<References Name="[dbo].[Historic_Tournament].[MajDate]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -346,7 +170,7 @@
 					<References Name="[dbo].[Person].[DateRegist]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -362,7 +186,7 @@
 					<References Name="[dbo].[Person].[Role]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -378,7 +202,7 @@
 					<References Name="[dbo].[Person].[Elo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -394,7 +218,7 @@
 					<References Name="[dbo].[Person].[NbrPartPlayed]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -410,7 +234,7 @@
 					<References Name="[dbo].[Person].[NbrPartWin]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -426,7 +250,7 @@
 					<References Name="[dbo].[Person].[NbrPartLost]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -442,7 +266,7 @@
 					<References Name="[dbo].[Person].[NbrPartDraw]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -456,6 +280,182 @@
 			<Relationship Name="ForColumn">
 				<Entry>
 					<References Name="[dbo].[Person].[Score]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[WomenOnly]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[2]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[PlayerMin]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[32]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[PlayerMax]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[NbrPlayerRegistered]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[MinElo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[3000]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[MaxElo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[GETDATE()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[DateCreation]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[GETDATE()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[DateLastMaj]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[Nbr_Ronde]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[Id_Place]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[0]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tournament].[Id_Status]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
@@ -504,25 +504,6 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[Tournament].[Id_Tournament]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tournament]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
 								<References Name="[dbo].[Historic_Tournament].[Id_MAJ]" />
 							</Entry>
 						</Relationship>
@@ -534,7 +515,7 @@
 					<References Name="[dbo].[Historic_Tournament]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -553,7 +534,7 @@
 					<References Name="[dbo].[Status]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -572,7 +553,7 @@
 					<References Name="[dbo].[Category]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -591,26 +572,7 @@
 					<References Name="[dbo].[Place]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Role].[Id_Role]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Role]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -629,7 +591,7 @@
 					<References Name="[dbo].[Gender]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -648,15 +610,15 @@
 					<References Name="[dbo].[Person]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
 		</Element>
-		<Element Type="SqlUniqueConstraint">
+		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
 				<Entry>
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[Tournament].[Name_Tournament]" />
+								<References Name="[dbo].[Tournament].[Id_Tournament]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -667,7 +629,26 @@
 					<References Name="[dbo].[Tournament]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Role].[Id_Role]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Role]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -686,7 +667,7 @@
 					<References Name="[dbo].[Status]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -705,26 +686,7 @@
 					<References Name="[dbo].[Category]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
-		</Element>
-		<Element Type="SqlUniqueConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Role].[ValueRole]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Role]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -743,7 +705,7 @@
 					<References Name="[dbo].[Gender]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -762,7 +724,7 @@
 					<References Name="[dbo].[Person]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
 		</Element>
 		<Element Type="SqlUniqueConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -781,17 +743,57 @@
 					<References Name="[dbo].[Person]" />
 				</Entry>
 			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
+		</Element>
+		<Element Type="SqlUniqueConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Tournament].[Name_Tournament]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tournament]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
+		</Element>
+		<Element Type="SqlUniqueConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Role].[ValueRole]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Role]" />
+				</Entry>
+			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[AddCategory]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-    DECLARE @Id_Category TINYINT;
+    DECLARE 
+        @Id_Category TINYINT,
+        @CleanedValueName NCHAR(7) = LOWER(TRIM(@Name_Category));
 
     -- Définir l'ID selon le nom
     SET @Id_Category = 
-        CASE @Name_Category
+        CASE @CleanedValueName
             WHEN N'junior' THEN 0
             WHEN N'senior' THEN 1
             WHEN N'veteran' THEN 2
@@ -800,6 +802,7 @@ BEGIN
 
     IF @Id_Category = -1
     BEGIN
+        SELECT 255 AS Id_Category;
         PRINT 'Erreur : Nom de catégorie non reconnu.';
         RETURN;
     END
@@ -812,20 +815,21 @@ BEGIN
     END
 
     -- Vérifier si le nom de catégorie existe déjà
-    EXEC CheckCatNameExists @Id_Category, @Name_Category;
+    EXEC CheckCatNameExists @Id_Category, @CleanedValueName;
 
      -- Vérification que MinAge ou MaxAge est déjà utilisé par une autre catégorie
-    EXEC CheckCategoryAgeExists @MinAge, @MaxAge, @Id_Category;
+    EXEC CheckCategoryAgeExists @Id_Category, @MinAge, @MaxAge;
 
 
     -- Insertion sécurisée
     BEGIN TRY
         INSERT INTO [dbo].[Category] ([Id_Category], [Name_Category], [MinAge], [MaxAge])
-        VALUES (@Id_Category, @Name_Category, @MinAge, @MaxAge);
-
+        VALUES (@Id_Category, @CleanedValueName, @MinAge, @MaxAge);
+        SELECT @Id_Category AS Id_Category;
         PRINT 'Catégorie insérée avec succès.';
     END TRY
     BEGIN CATCH
+        SELECT 255 AS Id_Category;
         PRINT 'Erreur : ' + ERROR_MESSAGE();
     END CATCH
 END;]]></Value>
@@ -834,6 +838,9 @@ END;]]></Value>
 			<Relationship Name="BodyDependencies">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[tinyint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nchar]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[AddCategory].[@Name_Category]" />
@@ -920,10 +927,315 @@ END;]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="1368" />
+				<Property Name="Length" Value="1569" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE AddCategory&#xD;&#xA;    @Name_Category NCHAR(7),&#xD;&#xA;    @MinAge TINYINT,&#xD;&#xA;    @MaxAge TINYINT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[AddGender]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    DECLARE 
+        @Id_Gender TINYINT,
+        @CleanedValueName NCHAR(6) = LOWER(TRIM(@ValueGender));
+
+    -- Définir l'ID selon le nom
+    SET @Id_Gender = 
+        CASE @CleanedValueName
+            WHEN N'femme' THEN 0
+            WHEN N'homme' THEN 1
+            ELSE -1 -- Valeur invalide, déclenchera une erreur
+        END;
+
+    IF @Id_Gender = -1
+    BEGIN
+        SELECT 255 AS Id_Gender;
+        PRINT 'Erreur : Nom de genre non reconnu.';
+        RETURN;
+    END
+
+    -- Vérifier le nombre total de catégories existantes
+    IF (SELECT COUNT(*) FROM [dbo].[Gender]) > 2
+    BEGIN
+        PRINT 'Erreur : Limite de 2 genre atteinte.';
+        RETURN;
+    END
+
+    -- Vérifier si le nom de catégorie existe déjà
+    EXEC CheckGenNameExists @Id_Gender, @CleanedValueName;
+
+    -- Insertion sécurisée
+    BEGIN TRY
+        INSERT INTO [dbo].[Gender] ([Id_Gender], [ValueGender])
+        VALUES (@Id_Gender, @CleanedValueName);
+
+        SELECT @Id_Gender AS Id_Gender;
+    END TRY
+    BEGIN CATCH
+        SELECT 255 AS Id_Status;
+        PRINT 'Erreur : ' + ERROR_MESSAGE();
+    END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[tinyint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddGender].[@ValueGender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckGenNameExists]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender].[Id_Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender].[ValueGender]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddGender].[@ValueGender]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="6" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1208" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE AddGender&#xD;&#xA;    @ValueGender NCHAR(6)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[AddRole]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    DECLARE 
+        @Id_Role TINYINT,
+        @CleanedValueName NCHAR(9) = LOWER(TRIM(@ValueRole));
+
+    -- Définir l'ID selon le nom
+    SET @Id_Role = 
+        CASE @CleanedValueName
+            WHEN N'checkmate' THEN 0
+            WHEN N'player' THEN 1
+            WHEN N'user' THEN 2
+            ELSE -1 -- Valeur invalide, déclenchera une erreur
+        END;
+
+    IF @Id_Role = -1
+    BEGIN
+        SELECT 255 AS Id_Role;
+        RETURN;
+    END
+
+    -- Vérifier le nombre total de catégories existantes
+    IF (SELECT COUNT(*) FROM [dbo].[Role]) > 3
+    BEGIN
+        PRINT 'Erreur : Limite de 3 role atteinte.';
+        RETURN;
+    END
+
+    -- Vérifier si le nom de catégorie existe déjà
+    EXEC CheckRoleNameExists @Id_Role, @CleanedValueName;
+
+    -- Insertion sécurisée
+    BEGIN TRY
+        INSERT INTO [dbo].[Role] ([Id_Role], [ValueRole])
+        VALUES (@Id_Role, @CleanedValueName);
+
+        -- Après insertion, renvoyer l’ID réel
+        SELECT @Id_Role AS Id_Role;
+    END TRY
+    BEGIN CATCH
+        -- En cas d’erreur SQL, renvoyer 255
+        SELECT 255 AS Id_Status;
+        PRINT 'Erreur : ' + ERROR_MESSAGE();
+    END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[tinyint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddRole].[@ValueRole]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Role]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[Role].[Id_Role]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Role].[ValueRole]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddRole].[@ValueRole]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="9" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1257" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE AddRole&#xD;&#xA;    @ValueRole NCHAR(9)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[AddStatus]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    DECLARE 
+        @Id_Status TINYINT,
+        @CleanedValueName NCHAR(21) = LOWER(TRIM(@ValueStatus));
+
+    -- 1. Déterminer l’ID
+    SET @Id_Status =
+        CASE @CleanedValueName
+            WHEN N'en attente de joueurs' THEN 0
+            WHEN N'en cours'               THEN 1
+            WHEN N'terminé'               THEN 2
+            WHEN N'annulé'                THEN 3
+            ELSE -1
+        END;
+
+    -- 2. Si nom non reconnu, renvoyer 255 et sortir
+    IF @Id_Status = -1
+    BEGIN
+        SELECT 255 AS Id_Status;
+        RETURN;       -- quitte la proc après le SELECT
+    END
+
+     -- Vérifier le nombre total de catégories existantes
+    IF (SELECT COUNT(*) FROM [dbo].[Status]) > 4
+    BEGIN
+        PRINT 'Erreur : Limite de 4 status atteinte.';
+        RETURN;
+    END
+
+    -- 3. Si déjà existant, renvoyer 255 et sortir
+
+    EXEC CheckStatNameExists @Id_Status, @CleanedValueName;
+
+    -- 4. Insertion
+    BEGIN TRY
+        INSERT INTO [dbo].[Status] ([Id_Status], [Value_Status])
+        VALUES (@Id_Status, @CleanedValueName);
+
+        -- 5. Après insertion, renvoyer l’ID réel
+        SELECT @Id_Status AS Id_Status;
+    END TRY
+    BEGIN CATCH
+        -- En cas d’erreur SQL, renvoyer 255
+        SELECT 255 AS Id_Status;
+        PRINT 'Erreur : ' + ERROR_MESSAGE();
+    END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[tinyint]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddStatus].[@ValueStatus]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckStatNameExists]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status].[Id_Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status].[Value_Status]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddStatus].[@ValueStatus]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="21" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1432" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE AddStatus&#xD;&#xA;    @ValueStatus NVARCHAR(21)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Category]">
@@ -943,7 +1255,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="34" />
+						<AttachedAnnotation Disambiguator="33" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -961,7 +1273,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="41" />
+						<AttachedAnnotation Disambiguator="40" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1012,13 +1324,19 @@ END;]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-    IF EXISTS (
-        SELECT 1 FROM [dbo].[Category]
-        WHERE [Id_Category] <> @ExcludeId AND
-              ([MinAge] = @MinAge OR [MaxAge] = @MaxAge)
+   IF EXISTS (
+    SELECT 1
+    FROM [dbo].[Category]
+    WHERE [Id_Category] <> @Id_Category
+      AND (
+          (@MinAge BETWEEN [MinAge] AND [MaxAge])
+          OR (@MaxAge BETWEEN [MinAge] AND [MaxAge])
+          OR ([MinAge] BETWEEN @MinAge AND @MaxAge)
+          OR ([MaxAge] BETWEEN @MinAge AND @MaxAge)
+      )
     )
     BEGIN
-        PRINT 'Erreur : Âge minumum ou maximul déjà utilisé dans une autre catégorie.';
+        PRINT 'Erreur : Tranche d’âge déjà utilisée par une autre catégorie.';
         RETURN;
     END
 END;]]></Value>
@@ -1032,13 +1350,13 @@ END;]]></Value>
 					<References Name="[dbo].[Category].[Id_Category]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[CheckCategoryAgeExists].[@ExcludeId]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Category].[MinAge]" />
+					<References Name="[dbo].[CheckCategoryAgeExists].[@Id_Category]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[CheckCategoryAgeExists].[@MinAge]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category].[MinAge]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Category].[MaxAge]" />
@@ -1049,7 +1367,7 @@ END;]]></Value>
 			</Relationship>
 			<Relationship Name="Parameters">
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckCategoryAgeExists].[@ExcludeId]">
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckCategoryAgeExists].[@Id_Category]">
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -1100,10 +1418,10 @@ END;]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="419" />
+				<Property Name="Length" Value="581" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE CheckCategoryAgeExists&#xD;&#xA;    @ExcludeId TINYINT,&#xD;&#xA;    @MinAge TINYINT,&#xD;&#xA;    @MaxAge TINYINT&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE CheckCategoryAgeExists&#xD;&#xA;    @Id_Category TINYINT,&#xD;&#xA;    @MinAge TINYINT,&#xD;&#xA;    @MaxAge TINYINT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CheckCatNameExists]">
@@ -1182,6 +1500,240 @@ END;]]></Value>
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE CheckCatNameExists&#xD;&#xA;    @ExcludeId TINYINT,&#xD;&#xA;    @Name NCHAR(7)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[CheckGenNameExists]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM [dbo].[Gender]
+        WHERE [Id_Gender] = @ExcludeId
+            OR [ValueGender] = @Name
+    )
+    BEGIN
+        PRINT 'Erreur : Une catégorie avec cet ID ou ce nom existe déjà.';
+        RETURN;
+    END
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender].[Id_Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckGenNameExists].[@ExcludeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender].[ValueGender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckGenNameExists].[@Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckGenNameExists].[@ExcludeId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckGenNameExists].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="7" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="350" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE CheckGenNameExists&#xD;&#xA;    @ExcludeId TINYINT,&#xD;&#xA;    @Name NCHAR(7)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[CheckRoleNameExist]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM [dbo].[Role]
+        WHERE [Id_Role] = @ExcludeId
+            OR [ValueRole] = @Name
+    )
+    BEGIN
+        PRINT 'Erreur : Un role avec cet ID ou ce nom existe déjà.';
+        RETURN;
+    END
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Role]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Role].[Id_Role]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckRoleNameExist].[@ExcludeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Role].[ValueRole]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckRoleNameExist].[@Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckRoleNameExist].[@ExcludeId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckRoleNameExist].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="9" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="346" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CheckRoleNameExist]&#xD;&#xA;    @ExcludeId TINYINT,&#xD;&#xA;    @Name NCHAR(9)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[CheckStatNameExists]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM [dbo].[Status]
+        WHERE [Id_Status] = @ExcludeId
+            OR [Value_Status] = @Name
+    )
+    BEGIN
+        SELECT 255 AS Id_Status;
+        RETURN;
+    END
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status].[Id_Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckStatNameExists].[@ExcludeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status].[Value_Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckStatNameExists].[@Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckStatNameExists].[@ExcludeId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckStatNameExists].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="21" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="311" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE CheckStatNameExists&#xD;&#xA;    @ExcludeId TINYINT,&#xD;&#xA;    @Name NCHAR(21)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_Category_Id]">
@@ -1990,7 +2542,7 @@ END;]]></Value>
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_Role_ValueRole]">
 			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[ValueRole] IN (N'CheckMate', N'Player', N'User')]]></Value>
+				<Value><![CDATA[[ValueRole] IN (N'checkmate', N'player', N'user')]]></Value>
 			</Property>
 			<Relationship Name="CheckExpressionDependencies">
 				<Entry>
@@ -2073,17 +2625,17 @@ END;]]></Value>
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_Tournament_DateEnd]">
 			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[DateEndRegisteration] > ([DateCreation]+[PlayerMax])]]></Value>
+				<Value><![CDATA[[DateEndRegisteration] > DATEADD(day, [PlayerMax], [DateCreation])]]></Value>
 			</Property>
 			<Relationship Name="CheckExpressionDependencies">
 				<Entry>
 					<References Name="[dbo].[Tournament].[DateEndRegisteration]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[Tournament].[DateCreation]" />
+					<References Name="[dbo].[Tournament].[PlayerMax]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[Tournament].[PlayerMax]" />
+					<References Name="[dbo].[Tournament].[DateCreation]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -2453,6 +3005,216 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE DeleteCategory&#xD;&#xA;    @Id_Category TINYINT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeleteGender]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    -- Vérifier si la catégorie existe
+    IF NOT EXISTS (
+        SELECT 1 FROM [dbo].[Gender]
+        WHERE [Id_Gender] = @Id_Gender
+    )
+    BEGIN
+        PRINT 'Erreur : Aucun genre trouvée avec cet ID.';
+        RETURN;
+    END
+
+    -- Suppression
+    BEGIN TRY
+        DELETE FROM [dbo].[Gender]
+        WHERE [Id_Gender] = @Id_Gender;
+
+        PRINT 'Genre supprimée avec succès.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Erreur : ' + ERROR_MESSAGE();
+    END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender].[Id_Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeleteGender].[@Id_Gender]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Gender].[Id_Gender]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeleteGender].[@Id_Gender]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="567" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE DeleteGender&#xD;&#xA;    @Id_Gender TINYINT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeleteRole]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    -- Vérifier si la catégorie existe
+    IF NOT EXISTS (
+        SELECT 1 FROM [dbo].[Role]
+        WHERE [Id_Role] = @Id_Role
+    )
+    BEGIN
+        PRINT 'Erreur : Aucun role trouvée avec cet ID.';
+        RETURN;
+    END
+
+    -- Suppression
+    BEGIN TRY
+        DELETE FROM [dbo].[Role]
+        WHERE [Id_Role] = @Id_Role;
+
+        PRINT 'Role supprimée avec succès.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Erreur : ' + ERROR_MESSAGE();
+    END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Role]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Role].[Id_Role]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeleteRole].[@Id_Role]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Role].[Id_Role]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeleteRole].[@Id_Role]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="549" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE DeleteRole&#xD;&#xA;    @Id_Role TINYINT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeleteStatus]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    -- Vérifier si la catégorie existe
+    IF NOT EXISTS (
+        SELECT 1 FROM [dbo].[Status]
+        WHERE [Id_Status] = @Id_Status
+    )
+    BEGIN
+        PRINT 'Erreur : Aucun status trouvée avec cet ID.';
+        RETURN;
+    END
+
+    -- Suppression
+    BEGIN TRY
+        DELETE FROM [dbo].[Status]
+        WHERE [Id_Status] = @Id_Status;
+
+        PRINT 'Status supprimée avec succès.';
+    END TRY
+    BEGIN CATCH
+        PRINT 'Erreur : ' + ERROR_MESSAGE();
+    END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status].[Id_Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeleteStatus].[@Id_Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Status].[Id_Status]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeleteStatus].[@Id_Status]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[tinyint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="569" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE DeleteStatus&#xD;&#xA;    @Id_Status TINYINT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Historic_Id_Status]">
 			<Relationship Name="Columns">
 				<Entry>
@@ -2700,7 +3462,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="37" />
+						<AttachedAnnotation Disambiguator="35" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2718,7 +3480,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="43" />
+						<AttachedAnnotation Disambiguator="41" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -2747,7 +3509,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="32" />
+						<AttachedAnnotation Disambiguator="31" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2780,7 +3542,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="20" />
+						<AttachedAnnotation Disambiguator="9" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3078,7 +3840,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="38" />
+						<AttachedAnnotation Disambiguator="36" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3096,7 +3858,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="44" />
+						<AttachedAnnotation Disambiguator="42" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3130,7 +3892,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="45" />
+						<AttachedAnnotation Disambiguator="43" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3163,7 +3925,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="21" />
+						<AttachedAnnotation Disambiguator="10" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3197,7 +3959,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="22" />
+						<AttachedAnnotation Disambiguator="11" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3214,7 +3976,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="23" />
+						<AttachedAnnotation Disambiguator="12" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3231,7 +3993,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="24" />
+						<AttachedAnnotation Disambiguator="13" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3248,7 +4010,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="25" />
+						<AttachedAnnotation Disambiguator="14" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3265,7 +4027,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="26" />
+						<AttachedAnnotation Disambiguator="15" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3282,7 +4044,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="27" />
+						<AttachedAnnotation Disambiguator="16" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3299,7 +4061,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="28" />
+						<AttachedAnnotation Disambiguator="17" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -3351,7 +4113,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="35" />
+						<AttachedAnnotation Disambiguator="34" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3415,7 +4177,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="36" />
+						<AttachedAnnotation Disambiguator="38" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3433,7 +4195,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="42" />
+						<AttachedAnnotation Disambiguator="45" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -3462,7 +4224,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="33" />
+						<AttachedAnnotation Disambiguator="32" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3480,7 +4242,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="40" />
+						<AttachedAnnotation Disambiguator="39" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -3509,7 +4271,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="31" />
+						<AttachedAnnotation Disambiguator="37" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3527,7 +4289,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="39" />
+						<AttachedAnnotation Disambiguator="44" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3544,7 +4306,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="9" />
+						<AttachedAnnotation Disambiguator="18" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3561,7 +4323,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="10" />
+						<AttachedAnnotation Disambiguator="19" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3578,7 +4340,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="11" />
+						<AttachedAnnotation Disambiguator="20" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3595,7 +4357,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="12" />
+						<AttachedAnnotation Disambiguator="21" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3612,7 +4374,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="13" />
+						<AttachedAnnotation Disambiguator="22" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3629,7 +4391,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="14" />
+						<AttachedAnnotation Disambiguator="23" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3646,7 +4408,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="15" />
+						<AttachedAnnotation Disambiguator="24" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3663,7 +4425,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="16" />
+						<AttachedAnnotation Disambiguator="25" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3696,7 +4458,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="17" />
+						<AttachedAnnotation Disambiguator="26" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3713,7 +4475,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="18" />
+						<AttachedAnnotation Disambiguator="27" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3730,7 +4492,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="19" />
+						<AttachedAnnotation Disambiguator="28" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -3766,7 +4528,11 @@ END;]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-    DECLARE @CurrentName NCHAR(7), @CurrentMinAge TINYINT, @CurrentMaxAge TINYINT;
+    DECLARE 
+        @CurrentName NCHAR(7), 
+        @CurrentMinAge TINYINT, 
+        @CurrentMaxAge TINYINT,
+        @CleanedValueName NCHAR(7) = LOWER(TRIM(@Name_Category));
 
     -- Récupérer les valeurs actuelles
     SELECT 
@@ -3784,14 +4550,14 @@ BEGIN
     END
 
     -- Vérifier si les nouvelles valeurs sont différentes
-    IF @CurrentName = @Name_Category AND @CurrentMinAge = @MinAge AND @CurrentMaxAge = @MaxAge
+    IF @CurrentName = @CleanedValueName AND @CurrentMinAge = @MinAge AND @CurrentMaxAge = @MaxAge
     BEGIN
         PRINT 'Aucune modification à apporter : les valeurs sont identiques.';
         RETURN;
     END
 
     -- Vérification que le nom n’est pas utilisé par une autre catégorie
-    EXEC CheckCatNameExists @Id_Category, @Name_Category;
+    EXEC CheckCatNameExists @Id_Category, @CleanedValueName;
 
     -- Vérification que MinAge ou MaxAge est déjà utilisé par une autre catégorie
     EXEC CheckCategoryAgeExists  @Id_Category, @MinAge, @MaxAge;
@@ -3800,7 +4566,7 @@ BEGIN
     -- Mise à jour
     BEGIN TRY
         UPDATE [dbo].[Category]
-        SET [Name_Category] = @Name_Category,
+        SET [Name_Category] = @CleanedValueName,
             [MinAge] = @MinAge,
             [MaxAge] = @MaxAge
         WHERE [Id_Category] = @Id_Category;
@@ -3824,6 +4590,12 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[tinyint]" />
 				</Entry>
 				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UpdateCategory].[@Name_Category]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Category]" />
 				</Entry>
 				<Entry>
@@ -3840,9 +4612,6 @@ END;]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[UpdateCategory].[@Id_Category]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[UpdateCategory].[@Name_Category]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[UpdateCategory].[@MinAge]" />
@@ -3926,7 +4695,7 @@ END;]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="1575" />
+				<Property Name="Length" Value="1681" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE UpdateCategory&#xD;&#xA;    @Id_Category TINYINT,&#xD;&#xA;    @Name_Category NCHAR(7),&#xD;&#xA;    @MinAge TINYINT,&#xD;&#xA;    @MaxAge TINYINT&#xD;&#xA;AS" />

@@ -2,10 +2,6 @@ C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\bin\De
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\bin\Debug\DB_Tounement.dll
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\bin\Debug\DB_Tounement.pdb
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.sqlproj.AssemblyReference.cache
-C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\Model.xml
-C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\refactor.xml
-C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\postdeploy.sql
-C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\predeploy.sql
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.dll
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.pdb
 C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\DB_Tounement\bin\Debug\DB_Tounement.dacpac
@@ -18,3 +14,7 @@ C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessT
 C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\DB_Tounement\obj\Debug\predeploy.sql
 C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.dll
 C:\Users\Flame\Documents\Developpement\Code\Ess4IT\C#\Labo_Technofuturtic\ChessTournament\DB_Tounement\obj\Debug\DB_Tounement.pdb
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\Model.xml
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\refactor.xml
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\postdeploy.sql
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DB_Tounement\obj\Debug\predeploy.sql

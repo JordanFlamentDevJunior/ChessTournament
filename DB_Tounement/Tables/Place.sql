@@ -7,5 +7,5 @@
 
     CONSTRAINT [CK_Place_Id] CHECK ([Id_Place] BETWEEN 0 AND 128),
     CONSTRAINT [CK_Place_Name] CHECK (LEN([Nom]) BETWEEN 3 AND 100),
-    CONSTRAINT [CK_Place_Adress] CHECK (LEN([Adresse]) BETWEEN 7 AND 500),
+    CONSTRAINT [CK_Place_Adress] CHECK (LEN([Adresse]) BETWEEN 7 AND 500)
 )

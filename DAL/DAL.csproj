@@ -12,7 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Exception\APITournamentException.csproj" />
     <ProjectReference Include="..\Model\Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HistoricTournamentRepository\" />
+    <Folder Include="MeetingRepository\" />
+    <Folder Include="ParticipationRepository\" />
+    <Folder Include="PersonRepository\" />
+    <Folder Include="PlaceRepository\" />
+    <Folder Include="TournamentRepository\" />
   </ItemGroup>
 
 </Project>
