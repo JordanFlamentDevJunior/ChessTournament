@@ -13,7 +13,7 @@ BEGIN
     -- Vérifier le nombre total de catégories existantes
     IF (SELECT COUNT(*) FROM [dbo].[Category]) > 3
     BEGIN
-        PRINT 'Erreur : Limite de 3 catégories atteinte.';
+        SELECT 255 AS Id_Category, 'Erreur : Limite de 3 catégories atteinte.' AS ErrorMessage;
         RETURN;
     END
         

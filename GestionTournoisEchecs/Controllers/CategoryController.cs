@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BLL.CategoryService;
 using Models.Category;
-using APITournamentException;
 
 namespace API.Controllers
 {
@@ -28,14 +27,9 @@ namespace API.Controllers
             {
                 IEnumerable<CategoryFull> categories = await _service.GetAll();
                 if (categories == null)
-                    throw new ControlException("No categories found.");
+                    return NotFound("No categories found.");
 
                 return Ok(categories);
-            }
-            catch (ControlException ex)
-            {
-                // Log the exception (not implemented here)
-                return BadRequest($"An error occurred while retrieving categories: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -51,25 +45,20 @@ namespace API.Controllers
         public async Task<IActionResult> GetById(byte id)
         {
             if (_service == null)
-                throw new ControlException("Service is not available");
+                return NotFound("Service is not available");
+
+            if (id < 0 && id > 2)
+                return BadRequest("The ID must be between 0 and 255.");
 
             try
             {
-                if (id >= 0 && id <= 2)
-                    throw new IndexOutOfRangeException("The ID must be between 0 and 255.");
-
                 CategoryFull category = await _service.GetById(id);
                 // verifier si la category est valide sinon retourner erreur 
 
                 if(category == null)
-                    throw new ControlException($"Category with ID {id} not found.");
+                    return NotFound($"Category with ID {id} not found.");
 
                 return Ok(category);
-            }
-            catch (ControlException ex)
-            {
-                // Log the exception (not implemented here)
-                return BadRequest($"An error occurred while retrieving the category: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -100,14 +89,9 @@ namespace API.Controllers
                 });
 
                 if (newId == 255)
-                    throw new ControlException("The category could not be added. It may already exist or be invalid.");
+                    return BadRequest("The category could not be added. It may already exist or be invalid.");
 
                 return Ok($"The new category was added successfully. New Id :{newId}");
-            }
-            catch (ControlException ex)
-            {
-                // Log the exception (not implemented here)
-                return BadRequest($"An error occurred while adding the category: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -135,15 +119,9 @@ namespace API.Controllers
             {
                 bool isUpdated = await _service.Update(category);
                 if (!isUpdated)
-                    throw new ControlException("The update of category was failed successfully");
+                    return BadRequest("The update of category was failed successfully");
 
                 return Ok("Category updated successfully");
-
-            }
-            catch (ControlException ex)
-            {
-                // Log the exception (not implemented here)
-                return BadRequest($"An error occurred while updating the category: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -169,14 +147,9 @@ namespace API.Controllers
             {
                 bool isDeleted = await _service.Delete(id);
                 if (!isDeleted)
-                    throw new ControlException("The deletion of category was failed successfully");
+                    return BadRequest("The deletion of category was failed successfully");
 
                 return Ok("Category deleted successfully");
-            }
-            catch (ControlException ex)
-            {
-                // Log the exception (not implemented here)
-                return BadRequest($"An error occurred while deleting the category: {ex.Message}");
             }
             catch (Exception ex)
             {

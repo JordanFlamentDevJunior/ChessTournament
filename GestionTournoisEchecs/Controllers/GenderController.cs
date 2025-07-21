@@ -1,6 +1,7 @@
 ﻿using BLL.GenderService;
 using Microsoft.AspNetCore.Mvc;
 using Models.Gender;
+using APITournamentException;
 
 namespace API.Controllers
 {
@@ -21,17 +22,22 @@ namespace API.Controllers
         public async Task<IActionResult> GetAll()
         {
             if (_service == null)
-            {
                 return NotFound("Service is not available");
-            }
 
-            IEnumerable<GenderFull> genres = await _service.GetAll();
-            // verifier si les genres sont valide sinon retourner erreur 
-            if (genres == null || !genres.Any())
+            try
             {
-                return NotFound("No gender's finding");
+                IEnumerable<GenderFull> genres = await _service.GetAll();
+                // verifier si les genres sont valide sinon retourner erreur 
+                if (genres == null || !genres.Any())
+                    return NotFound("No gender's finding");
+
+                return Ok(genres);
             }
-            return Ok(genres);
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
         #endregion
 
@@ -40,17 +46,25 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(byte id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (_service == null)
+                return NotFound("Service is not available");
 
-            GenderFull genre = await _service.GetById(id);
-            if (genre == null)
+            if (id < 0 || id > 1)
+                return BadRequest("The ID must be between 0 and 255.");
+
+            try
             {
-                return NotFound($"Gender not found id's : {id}.");
+                GenderFull genre = await _service.GetById(id);
+                if (genre == null)
+                    return NotFound($"Gender not found id's : {id}.");
+
+                return Ok(genre);
             }
-            return Ok(genre);
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                return BadRequest($"An error occurred while retrieving : {ex.Message}");
+            }
         }
         #endregion
 
@@ -59,16 +73,27 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddGender genre)
         {
+            if (_service == null)
+                return NotFound("Service is not available");
+
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
-            byte newId = await _service.Add(genre);
-            if (newId == 255)
+            try
             {
-                return BadRequest("Le genre n’a pas pu être ajouté. Il est peut-être déjà existant ou invalide.");
+                byte newId = await _service.Add(new AddGender
+                {
+                    NameGender = genre.NameGender.Trim().ToLower()
+                });
+                if (newId == 255)
+                    return BadRequest("Le genre n’a pas pu être ajouté. Il est peut-être déjà existant ou invalide.");
+                
+                return Ok($"The new gender was added successfully Id's {newId}");
             }
-            return Ok($"The new gender was added successfully Id's {newId}");
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
         #endregion
 
@@ -77,12 +102,25 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(byte id)
         {
-            bool isDeleted = await _service.Delete(id);
-            if (!isDeleted)
+            if(_service == null)
+                return NotFound("Service is not available");
+
+            if (id < 0 || id > 1)
+                return BadRequest("The ID must be between 0 and 255.");
+            try
             {
-                return NotFound("The deletion of gender was failed successfully");
+                bool isDeleted = await _service.Delete(id);
+                if (!isDeleted)
+                {
+                    return NotFound("The deletion of gender was failed successfully");
+                }
+                return Ok("Gender deleted successfully");
             }
-            return Ok("Gender deleted successfully");
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
         #endregion
     }

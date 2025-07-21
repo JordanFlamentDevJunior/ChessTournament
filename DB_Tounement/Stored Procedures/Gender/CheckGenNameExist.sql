@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE CheckGenNameExists
-    @ExcludeId TINYINT,
-    @Name NCHAR(6)
+    @ExcludeId TINYINT NOT NULL,
+    @Name NCHAR(5) NOT NULL
 AS
 BEGIN
     IF EXISTS (
@@ -9,7 +9,7 @@ BEGIN
             OR [ValueGender] = @Name
     )
     BEGIN
-        PRINT 'Erreur : Une catégorie avec cet ID ou ce nom existe déjà.';
-        RETURN;
+        RETURN 1;
     END
+    return 0;
 END;

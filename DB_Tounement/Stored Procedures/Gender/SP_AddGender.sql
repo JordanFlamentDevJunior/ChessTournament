@@ -1,35 +1,42 @@
 ﻿CREATE PROCEDURE AddGender
-    @ValueGender NCHAR(6)
+    @ValueGender NCHAR(5) NOT NULL
 AS
 BEGIN
     DECLARE 
-        @Id_Gender TINYINT,
-        @CleanedValueName NCHAR(6) = LOWER(TRIM(@ValueGender));
+        @Id_Gender TINYINT NOT NULL,
+        @CleanedValueName NCHAR(5) NOT NULL = LOWER(TRIM(@ValueGender)),
+        @conflictName BIT NOT NULL;
+
+    -- Vérifier le nombre total de catégories existantes
+    IF (SELECT COUNT(*) FROM [dbo].[Gender]) > 2
+    BEGIN
+        SELECT 255 AS Id_Gender, 'Erreur : Limite de 2 genre atteinte.' AS ErrorMessage;
+        RETURN;
+    END
 
     -- Définir l'ID selon le nom
     SET @Id_Gender = 
         CASE @CleanedValueName
             WHEN N'femme' THEN 0
             WHEN N'homme' THEN 1
+            WHEN N'autre' THEN 2
             ELSE -1 -- Valeur invalide, déclenchera une erreur
         END;
 
-    IF @Id_Gender = -1
+    -- s'assurer que l'ID est valide
+    IF @Id_Gender NOT BETWEEN 0 AND 1
     BEGIN
-        SELECT 255 AS Id_Gender;
-        PRINT 'Erreur : Nom de genre non reconnu.';
+        SELECT 255 AS Id_Genre, 'Erreur : Nom du genre non reconnu.' AS ErrorMessage;
         RETURN;
     END
 
-    -- Vérifier le nombre total de catégories existantes
-    IF (SELECT COUNT(*) FROM [dbo].[Gender]) > 2
+    -- Vérifier si le nom de genre existe déjà
+    EXEC @conflictName = CheckGenNameExists @Id_Gender, @CleanedValueName;
+    IF @conflictName = 1
     BEGIN
-        PRINT 'Erreur : Limite de 2 genre atteinte.';
+        SELECT 255 AS Id_Gender, 'Erreur : Un genre avec cet ID ou ce nom existe déjà.' AS ErrorMessage;
         RETURN;
     END
-
-    -- Vérifier si le nom de catégorie existe déjà
-    EXEC CheckGenNameExists @Id_Gender, @CleanedValueName;
 
     -- Insertion sécurisée
     BEGIN TRY
@@ -38,8 +45,8 @@ BEGIN
 
         SELECT @Id_Gender AS Id_Gender;
     END TRY
+
     BEGIN CATCH
-        SELECT 255 AS Id_Status;
-        PRINT 'Erreur : ' + ERROR_MESSAGE();
+        SELECT 255 AS Id_Status, 'Erreur : ' + ERROR_MESSAGE() AS ErrorMessage;
     END CATCH
 END;
