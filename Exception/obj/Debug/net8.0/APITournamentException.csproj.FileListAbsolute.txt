@@ -1,0 +1,12 @@
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\bin\Debug\net8.0\APITournamentException.deps.json
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\bin\Debug\net8.0\APITournamentException.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\bin\Debug\net8.0\APITournamentException.pdb
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.AssemblyInfoInputs.cache
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.AssemblyInfo.cs
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.csproj.CoreCompileInputs.cache
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.sourcelink.json
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\refint\APITournamentException.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\APITournamentException.pdb
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\Exception\obj\Debug\net8.0\ref\APITournamentException.dll

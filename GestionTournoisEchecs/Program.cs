@@ -1,12 +1,14 @@
+using Microsoft.Data.SqlClient;
+
 using BLL.CategoryService;
 using BLL.GenderService;
 using BLL.RoleService;
 using BLL.StatusService;
+
 using DAL.CategoryRepository;
-using DAL.GenderRepository;
+using DAL.Gender;
 using DAL.RoleRepository;
 using DAL.StatusRepository;
-using Microsoft.Data.SqlClient;
 
 namespace API
 {

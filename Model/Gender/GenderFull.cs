@@ -2,7 +2,7 @@
 {
     public class GenderFull
     {
-        public byte IdGender { get; set; }
+        public int IdGender { get; set; }
         public string NameGender { get; set; }
     }
 }

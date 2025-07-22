@@ -85,19 +85,22 @@
     <Build Include="Stored Procedures\Category\SP_AddCategory.sql" />
     <Build Include="Stored Procedures\Category\SP_DeleteCategory.sql" />
     <Build Include="Stored Procedures\Category\SP_UpdateCategory.sql" />
+    <Build Include="Stored Procedures\Category\CheckCatAgeExists.sql" />
+    <Build Include="Stored Procedures\Category\CheckCatNameExist.sql" />
     <Build Include="Stored Procedures\Gender\SP_AddGender.sql" />
+    <Build Include="Stored Procedures\Gender\CheckGenNameExists.sql" />
     <Build Include="Stored Procedures\Gender\SP_DeleteGender.sql" />
     <Build Include="Stored Procedures\Role\SP_AddRole.sql" />
     <Build Include="Stored Procedures\Role\SP_DeleteRole.sql" />
-    <Build Include="Stored Procedures\Role\CheckRoleNameExists.sql" />
-    <Build Include="Stored Procedures\Gender\CheckGenNameExist.sql" />
-    <Build Include="Stored Procedures\Category\CheckCatAgeExists.sql" />
-    <Build Include="Stored Procedures\Category\CheckCatNameExist.sql" />
-    <Build Include="Stored Procedures\Status\CheckStatNameExist.sql" />
+    <Build Include="Stored Procedures\Role\CheckRolNameExist.sql" />
     <Build Include="Stored Procedures\Status\SP_AddStatus.sql" />
     <Build Include="Stored Procedures\Status\SP_DeleteStatus.sql" />
+    <Build Include="Stored Procedures\Status\CheckStatNameExist.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB_Tounement.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DB_Tounement.refactorlog" />
   </ItemGroup>
 </Project>

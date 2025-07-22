@@ -29,11 +29,12 @@ namespace API.Controllers
                 if (categories == null)
                     return NotFound("No categories found.");
 
-                return Ok(categories);
+                return Ok( new { obj = categories } );
             }
             catch (Exception ex)
             {
                 // Log the exception (not implemented here)
+                Console.WriteLine(ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -42,13 +43,10 @@ namespace API.Controllers
         #region GetById
         // GET api/<CategoryController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(byte id)
+        public async Task<IActionResult> GetById(int id)
         {
             if (_service == null)
                 return NotFound("Service is not available");
-
-            if (id < 0 && id > 2)
-                return BadRequest("The ID must be between 0 and 255.");
 
             try
             {
@@ -58,11 +56,12 @@ namespace API.Controllers
                 if(category == null)
                     return NotFound($"Category with ID {id} not found.");
 
-                return Ok(category);
+                return Ok( new { obj = category } );
             }
             catch (Exception ex)
             {
                 // Log the exception (not implemented here)
+                Console.WriteLine(ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -81,21 +80,22 @@ namespace API.Controllers
 
             try
             {
-                byte newId = await _service.Add(new AddCategory
+                int newId = await _service.Add(new AddCategory
                 {
                     NameCategory = category.NameCategory.Trim().ToLower(),
                     MinAge = category.MinAge,
                     MaxAge = category.MaxAge
                 });
 
-                if (newId == 255)
+                if (newId == -1)
                     return BadRequest("The category could not be added. It may already exist or be invalid.");
 
-                return Ok($"The new category was added successfully. New Id :{newId}");
+                return Ok(new { message = "Category added successfully." });
             }
             catch (Exception ex)
             {
                 // Log the exception (not implemented here)
+                Console.WriteLine(ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -121,11 +121,12 @@ namespace API.Controllers
                 if (!isUpdated)
                     return BadRequest("The update of category was failed successfully");
 
-                return Ok("Category updated successfully");
+                return Ok(new { message = "Category updated successfully." });
             }
             catch (Exception ex)
             {
                 // Log the exception (not implemented here)
+                Console.WriteLine(ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -135,13 +136,10 @@ namespace API.Controllers
 
         // DELETE api/<CategoryController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(byte id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (_service == null)
                 return NotFound("Service is not available");
-
-            if ( id >= 0 && id <= 2)
-                return BadRequest("The ID must be between 0 and 255.");
 
             try
             {
@@ -149,11 +147,12 @@ namespace API.Controllers
                 if (!isDeleted)
                     return BadRequest("The deletion of category was failed successfully");
 
-                return Ok("Category deleted successfully");
+                return Ok(new { message = "Category deleted successfully." });
             }
             catch (Exception ex)
             {
                 // Log the exception (not implemented here)
+                Console.WriteLine(ex);
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

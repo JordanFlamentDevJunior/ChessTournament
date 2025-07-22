@@ -1,7 +1,7 @@
-﻿CREATE PROCEDURE CheckCategoryAgeExists
-    @Id_Category TINYINT NOT NULL,
-    @MinAge TINYINT NOT NULL,
-    @MaxAge TINYINT NOT NULL
+﻿CREATE PROCEDURE [dbo].[CheckCategoryAgeExists]
+    @Id_Category INT,
+    @MinAge INT,
+    @MaxAge INT
 AS
 BEGIN
    IF EXISTS (

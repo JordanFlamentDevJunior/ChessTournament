@@ -1,5 +1,11 @@
-﻿using DAL.RoleRepository;
+﻿using APITournamentException;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Models.Role;
+using DAL.RoleRepository;
 
 namespace BLL.RoleService
 {
@@ -10,35 +16,33 @@ namespace BLL.RoleService
         {
             _repository = repository;
         }
-
-        #region GetAll
         public async Task<IEnumerable<RoleFull>> GetAll()
         {
-            IEnumerable<RoleFull> roles = await _repository.GetAll();
-            return roles;
-        }
-        #endregion
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
 
-        #region GetById
-        public Task<RoleFull> GetById(byte id)
-        {
-            return _repository.GetById(id);
+            return await _repository.GetAll();
         }
-        #endregion
-
-        #region Add
-        public async Task<byte> Add(AddRole role)
+        public async Task<RoleFull> GetById(int id)
         {
-            byte reponse = await _repository.Add(role);
-            return reponse;
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
+
+            return await _repository.GetById(id);
         }
-        #endregion
-
-        #region Delete
-        public async Task<bool> Delete(byte id)
+        public async Task<int> Add(AddRole role)
         {
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
+
+            return await _repository.Add(role);
+        }
+        public async Task<bool> Delete(int id)
+        {
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
+
             return await _repository.Delete(id);
         }
-        #endregion
     }
 }

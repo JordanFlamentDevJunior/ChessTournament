@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "API/1.0.0": {
         "dependencies": {
+          "APITournamentException": "1.0.0",
           "BLL": "1.0.0",
           "DAL": "1.0.0",
           "Models": "1.0.0",
@@ -455,8 +456,17 @@
       "System.Text.Encodings.Web/4.7.2": {},
       "System.Text.Json/4.7.2": {},
       "System.Threading.Tasks.Extensions/4.5.4": {},
+      "APITournamentException/1.0.0": {
+        "runtime": {
+          "APITournamentException.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "BLL/1.0.0": {
         "dependencies": {
+          "APITournamentException": "1.0.0",
           "DAL": "1.0.0",
           "Models": "1.0.0"
         },
@@ -469,6 +479,7 @@
       },
       "DAL/1.0.0": {
         "dependencies": {
+          "APITournamentException": "1.0.0",
           "Microsoft.Data.SqlClient": "6.0.2",
           "Models": "1.0.0"
         },
@@ -781,6 +792,11 @@
       "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    },
+    "APITournamentException/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "BLL/1.0.0": {
       "type": "project",

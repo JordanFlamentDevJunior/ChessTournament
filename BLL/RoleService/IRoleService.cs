@@ -1,12 +1,17 @@
-﻿using Models.Role;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Models.Role;
 
 namespace BLL.RoleService
 {
     public interface IRoleService
     {
         Task<IEnumerable<RoleFull>> GetAll();
-        Task<RoleFull> GetById(byte id);
-        Task<byte> Add(AddRole role);
-        Task<bool> Delete(byte id);
+        Task<RoleFull> GetById(int id);
+        Task<int> Add(AddRole role);
+        Task<bool> Delete(int id);
     }
 }

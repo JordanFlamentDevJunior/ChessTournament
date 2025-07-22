@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -72,7 +72,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -97,7 +97,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "genre",
+        "Name": "gender",
         "Type": "Models.Gender.AddGender",
         "IsRequired": true
       }
@@ -114,7 +114,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -130,7 +130,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -172,7 +172,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -188,7 +188,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -230,7 +230,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -246,7 +246,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Byte",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

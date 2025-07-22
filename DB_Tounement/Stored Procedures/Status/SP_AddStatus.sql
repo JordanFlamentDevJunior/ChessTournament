@@ -1,50 +1,60 @@
-﻿CREATE PROCEDURE AddStatus
-    @ValueStatus NVARCHAR(21)
+﻿CREATE PROCEDURE [dbo].[AddStatus]
+	@Name_Status NCHAR(8),
+	@Id_Status INT OUTPUT
 AS
 BEGIN
-    DECLARE 
-        @Id_Status TINYINT,
-        @CleanedValueName NCHAR(21) = LOWER(TRIM(@ValueStatus));
+	DECLARE 
+		@CleanedValueName NCHAR(8) = LOWER(TRIM(@Name_Status)),
+		@conflictName BIT
 
-    -- 1. Déterminer l’ID
-    SET @Id_Status =
-        CASE @CleanedValueName
-            WHEN N'en attente de joueurs' THEN 0
-            WHEN N'en cours'               THEN 1
-            WHEN N'terminé'               THEN 2
-            WHEN N'annulé'                THEN 3
-            ELSE -1
-        END;
+	-- Définir l'ID selon le nom
+	SET @Id_Status = 
+		CASE @CleanedValueName
+			WHEN N'waiting' THEN 0
+			WHEN N'ongoing' THEN 1
+			WHEN N'finished' THEN 2
+			WHEN N'canceled' THEN 3
+			ELSE -1 -- Valeur invalide, déclenchera une erreur
+		END;
 
-    -- 2. Si nom non reconnu, renvoyer 255 et sortir
-    IF @Id_Status = -1
-    BEGIN
-        SELECT 255 AS Id_Status;
-        RETURN;       -- quitte la proc après le SELECT
-    END
+	-- s'assurer que l'ID est valide
+	IF @Id_Status = -1
+	BEGIN
+		RAISERROR ('Erreur : Nom de status non reconnu.', 16, 1);
+		RETURN;
+	END
 
-     -- Vérifier le nombre total de catégories existantes
-    IF (SELECT COUNT(*) FROM [dbo].[Status]) > 4
-    BEGIN
-        PRINT 'Erreur : Limite de 4 status atteinte.';
-        RETURN;
-    END
+	-- Vérifier si le nom de status existe déjà
+	EXEC @conflictName = CheckStatNameExist @Id_Status, @CleanedValueName;
+	IF @conflictName = 1
+	BEGIN
+		RAISERROR ('Erreur : Un status avec cet ID ou ce nom existe déjà.', 16, 1);
+		RETURN;
+	
+	-- Retourner l'ID du status inséré
+		SELECT @Id_Status AS Id_Status;
+	END
 
-    -- 3. Si déjà existant, renvoyer 255 et sortir
-
-    EXEC CheckStatNameExists @Id_Status, @CleanedValueName;
-
-    -- 4. Insertion
-    BEGIN TRY
-        INSERT INTO [dbo].[Status] ([Id_Status], [Value_Status])
-        VALUES (@Id_Status, @CleanedValueName);
-
-        -- 5. Après insertion, renvoyer l’ID réel
-        SELECT @Id_Status AS Id_Status;
-    END TRY
-    BEGIN CATCH
-        -- En cas d’erreur SQL, renvoyer 255
-        SELECT 255 AS Id_Status;
-        PRINT 'Erreur : ' + ERROR_MESSAGE();
-    END CATCH
+	-- Insertion sécurisée
+	BEGIN TRY
+		-- Insertion du nouveau status
+		INSERT INTO [dbo].[Status] ([Id_Status], [ValueStatus])
+		 VALUES (@Id_Status, @CleanedValueName);
+		
+	END TRY
+	BEGIN CATCH
+		DECLARE 
+				@ErrorMessage NVARCHAR(4000),
+				@ErrorSeverity INT,
+				@ErrorState INT;
+			SELECT
+				@ErrorMessage = ERROR_MESSAGE(),
+				@ErrorSeverity = ERROR_SEVERITY(),
+				@ErrorState = ERROR_STATE();
+			RAISERROR (
+				@ErrorMessage, -- Message text.
+				@ErrorSeverity, -- Severity.
+				@ErrorState -- State.
+			);
+	END CATCH
 END;

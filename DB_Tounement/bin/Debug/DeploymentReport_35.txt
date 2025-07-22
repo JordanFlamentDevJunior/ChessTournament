@@ -1,0 +1,39 @@
+﻿** Met en surbrillance
+     Tables qui seront recréées avec les données migrées
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Le type de la colonne ValueStatus dans la table [dbo].[Status] est actuellement  NCHAR (21) NOT NULL, mais est remplacé
+         par  NCHAR (8) NOT NULL. Une perte de données peut se produire et le déploiement risque d'échouer si la colonne contient
+         des données incompatibles avec le type  NCHAR (8) NOT NULL.
+
+** Actions de l'utilisateur
+     Renommer
+       [dbo].[Status].[ValueStatus] (Colonne)
+     Supprimer
+       contrainte sans nom sur [dbo].[Status] (Contrainte unique)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+     Modifier
+       [dbo].[Status] (Table)
+       [dbo].[DeleteStatus] (Procédure)
+       [dbo].[AddCategory] (Procédure)
+       [dbo].[AddGender] (Procédure)
+       [dbo].[AddStatus] (Procédure)
+     Créer
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CheckStatNameExist] (Procédure)
+
+** Actions de support
+     Créer
+       Contrainte unique: contrainte sans nom sur [dbo].[Status] (Contrainte unique)
+
+Le type de la colonne ValueStatus dans la table [dbo].[Status] est actuellement  NCHAR (21) NOT NULL, mais est remplacé par  NCHAR (8) NOT NULL. Une perte de données peut se produire et le déploiement risque d'échouer si la colonne contient des données incompatibles avec le type  NCHAR (8) NOT NULL.
+Si ce déploiement est exécuté, les modifications de [dbo].[Status] risquent d'introduire des erreurs d'exécution dans [dbo].[CheckStatNameExists].
+

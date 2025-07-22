@@ -1,49 +1,49 @@
-﻿using DAL.StatusRepository;
-using Models.Status;
+﻿using APITournamentException;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Status;
+using DAL.StatusRepository;
 
 namespace BLL.StatusService
 {
     public class StatusService : IStatusService
     {
         private readonly IStatusRepository _repository;
+
         public StatusService(IStatusRepository repository)
         {
             _repository = repository;
         }
-
-        #region GetAll
         public async Task<IEnumerable<StatusFull>> GetAll()
         {
-            IEnumerable<StatusFull> status = await _repository.GetAll();
-            return status;
-        }
-        #endregion
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
 
-        #region GetById
-        public Task<StatusFull> GetById(byte id)
-        {
-            return _repository.GetById(id);
+            return await _repository.GetAll();
         }
-        #endregion
-
-        #region Add
-        public async Task<byte> Add(AddStatus status)
+        public async Task<StatusFull> GetById(int id)
         {
-            byte reponse = await _repository.Add(status);
-            return reponse;
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
+
+            return await _repository.GetById(id);
         }
-        #endregion
-
-        #region Delete
-        public async Task<bool> Delete(byte id)
+        public async Task<int> Add(AddStatus status)
         {
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
+
+            return await _repository.Add(status);
+        }
+        public async Task<bool> Delete(int id)
+        {
+            if (_repository == null)
+                throw new BusinessException("Role repository is not available.");
+
             return await _repository.Delete(id);
         }
-        #endregion
     }
 }

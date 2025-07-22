@@ -2,9 +2,8 @@
 {
     public class UpdateCategory
     {
-        public byte IdCategory { get; set; }
-        public string NameCategory { get; set; }
-        public byte MinAge { get; set; }
-        public byte MaxAge { get; set; }
+        public int IdCategory { get; set; }
+        public int MinAge { get; set; }
+        public int MaxAge { get; set; }
     }
 }

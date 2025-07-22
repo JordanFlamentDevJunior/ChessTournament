@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cCCNYvkmyLY=",
+  "dgSpecHash": "53TIPoCwqUY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Flame\\Documents\\Developpement\\Code\\Ess4IT\\C#\\Labo_Technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj",
+  "projectFilePath": "C:\\Users\\Flame\\Documents\\Labo_technofuturtic\\ChessTournament\\GestionTournoisEchecs\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Flame\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Flame\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

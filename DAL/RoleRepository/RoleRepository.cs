@@ -1,5 +1,11 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Models.Role;
+using APITournamentException;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace DAL.RoleRepository
@@ -16,35 +22,40 @@ namespace DAL.RoleRepository
         #region GetAll
         public async Task<IEnumerable<RoleFull>> GetAll()
         {
-            List<RoleFull> reponse = new();
+            if (_connection == null)
+                throw new DataAccessException("Database connection is not available.");
+
+            List<RoleFull> response = new();
             SqlCommand cmd = new SqlCommand("SELECT * FROM Role", _connection);
 
             await ConnectionResetAsync();
             await _connection.OpenAsync();
 
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
             while (await reader.ReadAsync())
             {
                 RoleFull role = new()
                 {
-                    IdRole = reader.GetByte(reader.GetOrdinal("Id_Role")),
+                    IdRole = reader.GetInt32(reader.GetOrdinal("Id_Role")),
                     NameRole = reader.GetString(reader.GetOrdinal("ValueRole")).Trim().ToLower()
                 };
-                reponse.Add(role);
+                response.Add(role);
             }
+
             await ConnectionResetAsync();
-            return reponse.AsEnumerable();
+            return response.AsEnumerable();
         }
         #endregion
 
         #region GetById
-        public async Task<RoleFull> GetById(byte id)
+        public async Task<RoleFull> GetById(int id)
         {
-            RoleFull reponse = new();
-            SqlCommand cmd = _connection.CreateCommand();
-            cmd.CommandText = "SELECT * FROM Role WHERE Id_Role = @IdRole";
-            cmd.Parameters.AddWithValue("@IdRole", id);
+            if (_connection == null)
+                throw new DataAccessException("Database connection is not available.");
+
+            RoleFull response = new();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Role WHERE Id_Role = @id", _connection);
+            cmd.Parameters.AddWithValue("@id", id);
 
             await ConnectionResetAsync();
             await _connection.OpenAsync();
@@ -52,61 +63,66 @@ namespace DAL.RoleRepository
             SqlDataReader reader = await cmd.ExecuteReaderAsync();
             if (await reader.ReadAsync())
             {
-                reponse = new RoleFull()
+                response = new RoleFull()
                 {
-                    IdRole = reader.GetByte(reader.GetOrdinal("Id_Role")),
+                    IdRole = reader.GetInt32(reader.GetOrdinal("Id_Role")),
                     NameRole = reader.GetString(reader.GetOrdinal("ValueRole")).Trim().ToLower()
                 };
             }
+
             await ConnectionResetAsync();
-            return reponse;
+            return response;
         }
         #endregion
 
         #region Add
-        public async Task<byte> Add(AddRole role)
+        public async Task<int> Add(AddRole role)
         {
-            byte newId = 255; // pur indiquer une erreur par défaut
+            if (_connection == null)
+                throw new DataAccessException("Database connection is not available.");
 
-            SqlCommand command = new SqlCommand("[dbo].[AddRole]", _connection)
+            int id = -1;
+
+            SqlCommand cmd = new SqlCommand("[dbo].[AddRole]", _connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            command.Parameters.AddWithValue("@ValueRole", role.NameRole.Trim().ToLower());
+            SqlParameter outputParameter = new SqlParameter("@Id_Role", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
+            cmd.Parameters.AddWithValue("@Name_Role", role.NameRole.Trim().ToLower());
+            cmd.Parameters.Add(outputParameter);
 
             await ConnectionResetAsync();
             await _connection.OpenAsync();
 
-            await using (SqlDataReader reader = await command.ExecuteReaderAsync())
-            {
-                if (await reader.ReadAsync() && !reader.IsDBNull(0))
-                {
-                    newId = reader.GetByte(reader.GetOrdinal("Id_Role"));
-                }
-            }
+            cmd.ExecuteNonQuery();
+            id = (int)outputParameter.Value;
+
             await ConnectionResetAsync();
-            return newId;
+            return id;
         }
         #endregion
-
         #region Delete
-        public async Task<bool> Delete(byte id)
+        public async Task<bool> Delete(int id)
         {
+            if (_connection == null)
+                throw new DataAccessException("Database connection is not available.");
+
             bool response = false;
-            using SqlCommand command = new SqlCommand("[dbo].[DeleteRole]", _connection)
+            SqlCommand cmd = new SqlCommand("[dbo].[DeleteRole]", _connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            command.Parameters.AddWithValue("@Id_Role", id);
+            cmd.Parameters.AddWithValue("@Id_Role", id);
 
             await ConnectionResetAsync();
             await _connection.OpenAsync();
 
-            int rowsAffected = await command.ExecuteNonQueryAsync();
+            int rowsAffected = await cmd.ExecuteNonQueryAsync();
             if (rowsAffected == 1)
-            {
                 response = true;
-            }
 
             await ConnectionResetAsync();
             return response;

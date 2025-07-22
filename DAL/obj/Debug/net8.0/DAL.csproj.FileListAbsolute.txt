@@ -30,3 +30,5 @@ C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\refint\DAL.dll
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\DAL.pdb
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\obj\Debug\net8.0\ref\DAL.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\bin\Debug\net8.0\APITournamentException.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\DAL\bin\Debug\net8.0\APITournamentException.pdb

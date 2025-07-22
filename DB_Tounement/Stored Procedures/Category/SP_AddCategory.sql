@@ -1,22 +1,15 @@
-﻿CREATE PROCEDURE AddCategory
-    @Name_Category NCHAR(7) NOT NULL,
-    @MinAge TINYINT NOT NULL,
-    @MaxAge TINYINT NOT NULL
+﻿CREATE PROCEDURE [dbo].[AddCategory]
+    @Name_Category NCHAR(7),
+    @MinAge INT,
+    @MaxAge INT,
+    @Id_Category INT OUTPUT
 AS
 BEGIN
     DECLARE 
-    @Id_Category TINYINT NOT NULL,
-    @CleanedValueName NCHAR(7) NOT NULL = LOWER(TRIM(@Name_Category)),
-    @conflictName BIT NOT NULL,
-    @conflictAge BIT NOT NULL;
+        @CleanedValueName NCHAR(7) = LOWER(TRIM(@Name_Category)),
+        @conflictName BIT,
+        @conflictAge BIT;
 
-    -- Vérifier le nombre total de catégories existantes
-    IF (SELECT COUNT(*) FROM [dbo].[Category]) > 3
-    BEGIN
-        SELECT 255 AS Id_Category, 'Erreur : Limite de 3 catégories atteinte.' AS ErrorMessage;
-        RETURN;
-    END
-        
     -- Définir l'ID selon le nom
     SET @Id_Category = 
         CASE @CleanedValueName
@@ -27,9 +20,9 @@ BEGIN
         END;
 
     -- s'assurer que l'ID est valide
-    IF @Id_Category NOT BETWEEN 0 AND 2
+    IF @Id_Category = -1
     BEGIN
-        SELECT 255 AS Id_Category, 'Erreur : Nom de catégorie non reconnu.' AS ErrorMessage;
+        RAISERROR ('Erreur : Nom de catégorie non reconnu.', 16, 1);
         RETURN;
     END
 
@@ -38,7 +31,7 @@ BEGIN
     EXEC @conflictName = CheckCatNameExists @Id_Category, @CleanedValueName;
     IF @conflictName = 1
     BEGIN
-        SELECT 255 AS Id_Category, 'Erreur : Une catégorie avec cet ID ou ce nom existe déjà.' AS ErrorMessage;
+        RAISERROR ('Erreur : Une catégorie avec cet ID ou ce nom existe déjà.', 16, 1);
         RETURN;
     END
 
@@ -46,7 +39,7 @@ BEGIN
     EXEC @conflictAge = CheckCategoryAgeExists @Id_Category, @MinAge, @MaxAge;
     IF @conflictAge = 1
     BEGIN
-        SELECT 255 AS Id_Category, 'Erreur : Tranche d’âge déjà utilisée par une autre catégorie.' AS ErrorMessage;
+        RAISERROR ('Erreur : Tranche d’âge déjà utilisée par une autre catégorie.', 16, 1);
         RETURN;
     END
 
@@ -61,7 +54,20 @@ BEGIN
     END TRY
 
     BEGIN CATCH
-        -- Retourne l'ID 255 en cas d'erreur + message d'erreur
-        SELECT 255 AS Id_Category, 'Erreur : ' + ERROR_MESSAGE() AS ErrorMessage;
-    END CATCH
+        DECLARE 
+            @ErrorMessage NVARCHAR(4000),
+            @ErrorSeverity INT,
+            @ErrorState INT;
+
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+
+        RAISERROR (
+            @ErrorMessage, -- Message text.
+            @ErrorSeverity, -- Severity.
+            @ErrorState -- State.
+        );
+    END CATCH;
 END;

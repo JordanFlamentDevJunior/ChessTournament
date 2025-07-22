@@ -1,4 +1,10 @@
-﻿using DAL.GenderRepository;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DAL.Gender;
+using APITournamentException;
 using Models.Gender;
 
 namespace BLL.GenderService
@@ -6,7 +12,6 @@ namespace BLL.GenderService
     public class GenderService : IGenderService
     {
         private readonly IGenderRepository _repository;
-
         public GenderService(IGenderRepository repository)
         {
             _repository = repository;
@@ -15,30 +20,40 @@ namespace BLL.GenderService
         #region GetAll
         public async Task<IEnumerable<GenderFull>> GetAll()
         {
-            IEnumerable<GenderFull> genders = await _repository.GetAll();
-            return genders;
+            if (_repository == null)
+                throw new BusinessException("Gender repository is not available.");
+
+            return await _repository.GetAll();
         }
         #endregion
 
         #region GetById
-        public Task<GenderFull> GetById(byte id)
+        public Task<GenderFull> GetById(int id)
         {
+            if (_repository == null)
+                throw new BusinessException("Gender repository is not available.");
+
             return _repository.GetById(id);
         }
         #endregion
 
         #region Add
-        public async Task<byte> Add(AddGender gender)
+        public async Task<int> Add(AddGender gender)
         {
-            byte reponse = await _repository.Add(gender);
-            return reponse;
+            if (_repository == null)
+                throw new BusinessException("Gender repository is not available.");
+
+            return await _repository.Add(gender);
         }
         #endregion
 
         #region Delete
-        public async Task<bool> Delete(byte id)
+        public Task<bool> Delete(int id)
         {
-            return await _repository.Delete(id);
+            if (_repository == null)
+                throw new BusinessException("Gender repository is not available.");
+
+            return _repository.Delete(id);
         }
         #endregion
     }

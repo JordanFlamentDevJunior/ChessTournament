@@ -2,12 +2,12 @@
 (
 	[Id_Person] INT NOT NULL PRIMARY KEY, 
     [Pseudo] NCHAR(100) NOT NULL UNIQUE, 
-    [Gender] TINYINT NOT NULL, 
+    [Gender] INT NOT NULL, 
     [Mail] NCHAR(300) NOT NULL UNIQUE, -- sera soumi a une regex pour validation                                  ++tard
     [BirthDate] DATETIME NOT NULL, 
     [DateRegist] DATETIME NOT NULL DEFAULT GETDATE(), -- verif validité de la date 
     [Password] NCHAR(1000) NOT NULL, 
-    [Role] TINYINT NOT NULL DEFAULT 2,
+    [Role] INT NOT NULL DEFAULT 2,
     [Elo] INT NOT NULL DEFAULT 1200, 
     [NbrPartPlayed] INT NOT NULL DEFAULT 0,
     [NbrPartWin] INT NOT NULL DEFAULT 0,
@@ -16,7 +16,6 @@
     [Score] INT NOT NULL DEFAULT 0,
 
     -- contraintes de base
-    CONSTRAINT [CK_Person_Id] CHECK ([Id_Person] >= 0),
     CONSTRAINT [CK_Person_Pseudo] CHECK (LEN([Pseudo]) >= 3 ), -- Pseudo entre 3 et 100 caractères
 
     CONSTRAINT [CK_Person_Mail] CHECK (LEN([Mail]) >= 5 ), -- Mail entre 5 et 300 caractères
@@ -47,8 +46,6 @@
     CONSTRAINT [CK_Person_Score_Max_Total] CHECK ([Score] = ([NbrPartWin]+[NbrPartLost]+[NbrPartDraw])),  -- de vérifier que le score est cohérent avec les résultats des parties jouées
 
     -- contraintes de clé étrangères
-    CONSTRAINT [CK_Person_Gender] CHECK ([Gender] IN (0, 1)),
-    CONSTRAINT [CK_Person_Role] CHECK ([Role] IN (0, 1, 2)),
 
     CONSTRAINT [FK_Person_Gender] FOREIGN KEY ([Gender]) REFERENCES [dbo].[Gender]([Id_Gender]),
     CONSTRAINT [FK_Person_Role] FOREIGN KEY ([Role]) REFERENCES [dbo].[Role]([Id_Role])

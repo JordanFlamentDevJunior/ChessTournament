@@ -3,7 +3,7 @@
     public class AddCategory
     {
         public string NameCategory { get; set; }
-        public byte MinAge { get; set; }
-        public byte MaxAge { get; set; }
+        public int MinAge { get; set; }
+        public int MaxAge { get; set; }
     }
 }

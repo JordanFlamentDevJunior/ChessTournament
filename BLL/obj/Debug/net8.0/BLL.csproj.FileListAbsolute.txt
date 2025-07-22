@@ -34,3 +34,5 @@ C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\BLL\obj\Debug\net8.
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\refint\BLL.dll
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\BLL.pdb
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\BLL\obj\Debug\net8.0\ref\BLL.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\BLL\bin\Debug\net8.0\APITournamentException.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\BLL\bin\Debug\net8.0\APITournamentException.pdb

@@ -171,3 +171,5 @@ C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\GestionTournoisEche
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\GestionTournoisEchecs\obj\Debug\net8.0\API.pdb
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\GestionTournoisEchecs\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\GestionTournoisEchecs\obj\Debug\net8.0\ref\API.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\GestionTournoisEchecs\bin\Debug\net8.0\APITournamentException.dll
+C:\Users\Flame\Documents\Labo_technofuturtic\ChessTournament\GestionTournoisEchecs\bin\Debug\net8.0\APITournamentException.pdb

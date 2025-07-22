@@ -1,0 +1,96 @@
+﻿** Met en surbrillance
+     Tables qui seront recréées avec les données migrées
+       [dbo].[Gender]
+       [dbo].[Place]
+       [dbo].[Role]
+       [dbo].[Status]
+       [dbo].[Tournament]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Supprimer
+       contrainte sans nom sur [dbo].[Person] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       contrainte sans nom sur [dbo].[Tournament] (Contrainte par défaut)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+     Recréer la table
+       [dbo].[Gender] (Table)
+       [dbo].[Place] (Table)
+       [dbo].[Role] (Table)
+       [dbo].[Status] (Table)
+       [dbo].[Tournament] (Table)
+     Modifier
+       [dbo].[Historic_Tournament] (Table)
+       [dbo].[meet] (Table)
+       [dbo].[Participation] (Table)
+       [dbo].[Person] (Table)
+     Créer
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+
+** Actions de support
+     Supprimer
+       [dbo].[FK_Person_Gender] (Clé étrangère)
+       [dbo].[FK_Historic_Id_Status] (Clé étrangère)
+       [dbo].[FK_Historic_Id_Tournament] (Clé étrangère)
+       [dbo].[FK_Participation_IdTournament] (Clé étrangère)
+       [dbo].[FK_Person_Role] (Clé étrangère)
+       [dbo].[FK_Tournament_Place] (Clé étrangère)
+       [dbo].[FK_Tournament_Status] (Clé étrangère)
+     Créer
+       Contrainte par défaut: contrainte sans nom sur [dbo].[Person] (Contrainte par défaut)
+       [dbo].[FK_Person_Gender] (Clé étrangère)
+       [dbo].[FK_Historic_Id_Status] (Clé étrangère)
+       [dbo].[FK_Historic_Id_Tournament] (Clé étrangère)
+       [dbo].[FK_Participation_IdTournament] (Clé étrangère)
+       [dbo].[FK_Person_Role] (Clé étrangère)
+       [dbo].[FK_Tournament_Place] (Clé étrangère)
+       [dbo].[FK_Tournament_Status] (Clé étrangère)
+       [dbo].[CK_Tournament_Name] (Contrainte de validation)
+       [dbo].[CK_Tournament_PlayMin] (Contrainte de validation)
+       [dbo].[CK_Tournament_PlayMax_min] (Contrainte de validation)
+       [dbo].[CK_Tournament_PlayMax_max] (Contrainte de validation)
+       [dbo].[CK_Tournament_Regist_min] (Contrainte de validation)
+       [dbo].[CK_Tournament_Regist_max] (Contrainte de validation)
+       [dbo].[CK_Tournament_MinElo_min] (Contrainte de validation)
+       [dbo].[CK_Tournament_MinElo_max] (Contrainte de validation)
+       [dbo].[CK_Tournament_MaxElo_min] (Contrainte de validation)
+       [dbo].[CK_Tournament_MaxElo_max] (Contrainte de validation)
+       [dbo].[CK_Tournament_DateCreation_A] (Contrainte de validation)
+       [dbo].[CK_Tournament_DateCreation_B] (Contrainte de validation)
+       [dbo].[CK_Tournament_DateLastMaj_A] (Contrainte de validation)
+       [dbo].[CK_Tournament_DateLastMaj_B] (Contrainte de validation)
+       [dbo].[CK_Tournament_DateEnd] (Contrainte de validation)
+       [dbo].[CK_Tournament_Nbr_Ronde_A] (Contrainte de validation)
+       [dbo].[CK_Tournament_Nbr_Ronde_B] (Contrainte de validation)
+     Actualiser
+       [dbo].[CheckGenNameExists] (Procédure)
+       [dbo].[SP_DeleteGender] (Procédure)
+       [dbo].[AddGender] (Procédure)
+
+Si ce déploiement est exécuté, les modifications de [dbo].[Gender] risquent d'introduire des erreurs d'exécution dans [dbo].[DeleteGender].
+Si ce déploiement est exécuté, les modifications de [dbo].[Role] risquent d'introduire des erreurs d'exécution dans [dbo].[AddRole].
+Si ce déploiement est exécuté, les modifications de [dbo].[Role] risquent d'introduire des erreurs d'exécution dans [dbo].[CheckRoleNameExist].
+Si ce déploiement est exécuté, les modifications de [dbo].[Role] risquent d'introduire des erreurs d'exécution dans [dbo].[CheckRoleNameExists].
+Si ce déploiement est exécuté, les modifications de [dbo].[Role] risquent d'introduire des erreurs d'exécution dans [dbo].[DeleteRole].
+Si ce déploiement est exécuté, les modifications de [dbo].[Status] risquent d'introduire des erreurs d'exécution dans [dbo].[AddStatus].
+Si ce déploiement est exécuté, les modifications de [dbo].[Status] risquent d'introduire des erreurs d'exécution dans [dbo].[CheckStatNameExists].
+Si ce déploiement est exécuté, les modifications de [dbo].[Status] risquent d'introduire des erreurs d'exécution dans [dbo].[DeleteStatus].
+

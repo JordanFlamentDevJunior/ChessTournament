@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteGender
-    @Id_Gender TINYINT
+﻿CREATE PROCEDURE [dbo].[SP_DeleteGender]
+    @Id_Gender INT
 AS
 BEGIN
     -- Vérifier si la catégorie existe
@@ -8,7 +8,7 @@ BEGIN
         WHERE [Id_Gender] = @Id_Gender
     )
     BEGIN
-        PRINT 'Erreur : Aucun genre trouvée avec cet ID.';
+        RAISERROR ('Erreur : Aucune catégorie trouvée avec cet ID.', 16, 1);
         RETURN;
     END
 
@@ -16,10 +16,23 @@ BEGIN
     BEGIN TRY
         DELETE FROM [dbo].[Gender]
         WHERE [Id_Gender] = @Id_Gender;
-
-        PRINT 'Genre supprimée avec succès.';
     END TRY
+
     BEGIN CATCH
-        PRINT 'Erreur : ' + ERROR_MESSAGE();
+     DECLARE 
+            @ErrorMessage NVARCHAR(4000),
+            @ErrorSeverity INT,
+            @ErrorState INT;
+
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+
+        RAISERROR (
+            @ErrorMessage, -- Message text.
+            @ErrorSeverity, -- Severity.
+            @ErrorState -- State.
+        );
     END CATCH
 END;

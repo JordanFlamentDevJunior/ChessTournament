@@ -5,8 +5,8 @@ namespace BLL.GenderService
     public interface IGenderService
     {
         Task<IEnumerable<GenderFull>> GetAll();
-        Task<GenderFull> GetById(byte id);
-        Task<byte> Add(AddGender gender);
-        Task<bool> Delete(byte id);
+        Task<GenderFull> GetById(int id);
+        Task<int> Add(AddGender category);
+        Task<bool> Delete(int id);
     }
 }

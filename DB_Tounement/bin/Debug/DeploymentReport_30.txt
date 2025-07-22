@@ -1,0 +1,40 @@
+﻿** Met en surbrillance
+     Tables qui seront recréées avec les données migrées
+       Aucun
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Le type de la colonne ValueGender dans la table [dbo].[Gender] est actuellement  NCHAR (6) NOT NULL, mais est remplacé
+         par  NCHAR (5) NOT NULL. Une perte de données peut se produire et le déploiement risque d'échouer si la colonne contient
+         des données incompatibles avec le type  NCHAR (5) NOT NULL.
+
+** Actions de l'utilisateur
+     Supprimer
+       contrainte sans nom sur [dbo].[Gender] (Contrainte unique)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+     Modifier
+       [dbo].[Gender] (Table)
+       [dbo].[CheckGenNameExists] (Procédure)
+       [dbo].[CheckCategoryAgeExists] (Procédure)
+       [dbo].[UpdateCategory] (Procédure)
+       [dbo].[CheckCatNameExists] (Procédure)
+       [dbo].[DeleteCategory] (Procédure)
+       [dbo].[AddGender] (Procédure)
+       [dbo].[AddCategory] (Procédure)
+     Créer
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[SP_DeleteGender] (Procédure)
+
+** Actions de support
+     Créer
+       Contrainte unique: contrainte sans nom sur [dbo].[Gender] (Contrainte unique)
+
+Le type de la colonne ValueGender dans la table [dbo].[Gender] est actuellement  NCHAR (6) NOT NULL, mais est remplacé par  NCHAR (5) NOT NULL. Une perte de données peut se produire et le déploiement risque d'échouer si la colonne contient des données incompatibles avec le type  NCHAR (5) NOT NULL.
+Si ce déploiement est exécuté, les modifications de [dbo].[Gender] risquent d'introduire des erreurs d'exécution dans [dbo].[DeleteGender].
+

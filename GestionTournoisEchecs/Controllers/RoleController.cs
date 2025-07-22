@@ -1,5 +1,6 @@
-﻿using BLL.RoleService;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using BLL.RoleService;
 using Models.Role;
 
 namespace API.Controllers
@@ -21,33 +22,49 @@ namespace API.Controllers
         public async Task<IActionResult> GetAll()
         {
             if (_service == null)
-            {
                 return NotFound("Service is not available");
-            }
-            IEnumerable<RoleFull> roles = await _service.GetAll();
-            if (roles == null || !roles.Any())
+
+            try
             {
-                return NotFound("No roles found.");
+                IEnumerable<RoleFull> roles = await _service.GetAll();
+
+                if (roles == null)
+                    return NotFound("No roles found.");
+
+                return Ok(new { obj = roles });
             }
-            return Ok(roles);
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                Console.WriteLine(ex);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
         #endregion
 
         #region GetById
-        // GET api/<RoleController>/1
+        // GET api/<RoleController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(byte id)
+        public async Task<IActionResult> GetById(int id)
         {
-            if (!ModelState.IsValid)
+            if (_service == null)
+                return NotFound("Service is not available");
+
+            try
             {
-                return BadRequest(ModelState);
+                RoleFull role = await _service.GetById(id);
+
+                if (role == null)
+                    return NotFound($"Role with ID {id} not found.");
+
+                return Ok(new { obj = role });
             }
-            RoleFull role = await _service.GetById(id);
-            if (role == null)
+            catch (Exception ex)
             {
-                return NotFound($"Role with ID {id} not found.");
+                // Log the exception (not implemented here)
+                Console.WriteLine(ex);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-            return Ok(role);
         }
         #endregion
 
@@ -56,30 +73,56 @@ namespace API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddRole role)
         {
-            if (!ModelState.IsValid)
-            {
+            if (_service == null)
+                return NotFound("Service is not available");
+
+            if(!ModelState.IsValid)
                 return BadRequest(ModelState);
-            }
-            byte newId = await _service.Add(role);
-            if (newId == 255)
+
+            try
             {
-                return BadRequest("The role could not be added. It may already exist or be invalid.");
+                int newId = await _service.Add( new AddRole
+                {
+                    NameRole = role.NameRole.Trim().ToLower()
+                });
+
+                if (newId == -1)
+                    return BadRequest("Failed to add the role.");
+
+                return Ok(new { message = "Role added successfully." });
             }
-            return Ok($"The new role was added successfully with ID: {newId}");
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                Console.WriteLine(ex);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
         #endregion
 
         #region Delete
-        // DELETE api/<RoleController>/1
+        // DELETE api/<RoleController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(byte id)
+        public async Task<IActionResult> Delete(int id)
         {
-            bool isDeleted = await _service.Delete(id);
-            if (!isDeleted)
+            if (_service == null)
+                return NotFound("Service is not available");
+
+            try
             {
-                return NotFound("Role not found or could not be deleted");
+                bool result = await _service.Delete(id);
+
+                if (!result)
+                    return NotFound($"Role with ID {id} not found or could not be deleted.");
+
+                return Ok(new { message = "Role deleted successfully." });
             }
-            return Ok("The role was deleted successfully");
+            catch (Exception ex)
+            {
+                // Log the exception (not implemented here)
+                Console.WriteLine(ex);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
         #endregion
     }

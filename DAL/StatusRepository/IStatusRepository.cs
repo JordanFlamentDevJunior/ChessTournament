@@ -5,8 +5,8 @@ namespace DAL.StatusRepository
     public interface IStatusRepository
     {
         Task<IEnumerable<StatusFull>> GetAll();
-        Task<StatusFull> GetById(byte id);
-        Task<byte> Add(AddStatus status);
-        Task<bool> Delete(byte id);
+        Task<StatusFull> GetById(int id);
+        Task<int> Add(AddStatus status);
+        Task<bool> Delete(int id);
     }
 }

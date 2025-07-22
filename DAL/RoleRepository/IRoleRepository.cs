@@ -5,8 +5,8 @@ namespace DAL.RoleRepository
     public interface IRoleRepository
     {
         Task<IEnumerable<RoleFull>> GetAll();
-        Task<RoleFull> GetById(byte id);
-        Task<byte> Add(AddRole role);
-        Task<bool> Delete(byte id);
+        Task<RoleFull> GetById(int id);
+        Task<int> Add(AddRole role);
+        Task<bool> Delete(int id);
     }
 }

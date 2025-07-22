@@ -1,6 +1,6 @@
-﻿CREATE PROCEDURE CheckCatNameExists
-    @ExcludeId TINYINT NOT NULL,
-    @Name NCHAR(7) NOT NULL
+﻿CREATE PROCEDURE [dbo].[CheckCatNameExists]
+    @ExcludeId INT,
+    @Name NCHAR(7)
 AS
 BEGIN
     IF EXISTS (

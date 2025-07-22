@@ -1,0 +1,34 @@
+﻿** Met en surbrillance
+     Tables qui seront recréées avec les données migrées
+       [dbo].[Category]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Supprimer
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+     Recréer la table
+       [dbo].[Category] (Table)
+     Créer
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+       [dbo].[CK_Place_Adress] (Contrainte de validation)
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+     Modifier
+       [dbo].[CheckCategoryAgeExists] (Procédure)
+       [dbo].[CheckCatNameExists] (Procédure)
+       [dbo].[DeleteCategory] (Procédure)
+       [dbo].[AddCategory] (Procédure)
+       [dbo].[UpdateCategory] (Procédure)
+
+** Actions de support
+     Créer
+       [dbo].[CK_Category_MaxAge_positif] (Contrainte de validation)
+       [dbo].[CK_Category_MaxAge] (Contrainte de validation)
+     Actualiser
+       [dbo].[ViewCategory] (Vue)

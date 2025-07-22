@@ -2,13 +2,10 @@
 (
 	[Id_participation] INT NOT NULL PRIMARY KEY, 
     [Id_Person] INT NOT NULL, 
-    [Id_Tournament] TINYINT NOT NULL, 
+    [Id_Tournament] INT NOT NULL, 
     [SubscribDate] DATE NOT NULL DEFAULT GETDATE(), 
     [UnsubscribDate] DATE NULL DEFAULT NULL,
 
-    CONSTRAINT [CK_Participation_IdPart] CHECK ([Id_Participation] >= 0),
-    CONSTRAINT [CK_Participation_IdPerson] CHECK ([Id_Person] >= 0),
-    CONSTRAINT [CK_Participation_IdTournament] CHECK ([Id_Tournament] BETWEEN 0 AND 128),
     CONSTRAINT [CK_Participation_Subscrib] CHECK ([SubscribDate] = GETDATE()),
     CONSTRAINT [CK_Participation_Unsubscrib] CHECK ([UnsubscribDate] >= [SubscribDate]),
 

@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteRole
-    @Id_Role TINYINT
+﻿CREATE PROCEDURE [dbo].[DeleteRole]
+	@Id_Role INT
 AS
 BEGIN
     -- Vérifier si la catégorie existe
@@ -8,7 +8,7 @@ BEGIN
         WHERE [Id_Role] = @Id_Role
     )
     BEGIN
-        PRINT 'Erreur : Aucun role trouvée avec cet ID.';
+        RAISERROR ('Erreur : Aucun role trouvée avec cet ID.', 16, 1);
         RETURN;
     END
 
@@ -16,10 +16,23 @@ BEGIN
     BEGIN TRY
         DELETE FROM [dbo].[Role]
         WHERE [Id_Role] = @Id_Role;
-
-        PRINT 'Role supprimée avec succès.';
     END TRY
+
     BEGIN CATCH
-        PRINT 'Erreur : ' + ERROR_MESSAGE();
+     DECLARE 
+            @ErrorMessage NVARCHAR(4000),
+            @ErrorSeverity INT,
+            @ErrorState INT;
+
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+
+        RAISERROR (
+            @ErrorMessage, -- Message text.
+            @ErrorSeverity, -- Severity.
+            @ErrorState -- State.
+        );
     END CATCH
 END;

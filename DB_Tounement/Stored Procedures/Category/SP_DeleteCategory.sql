@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE DeleteCategory
-    @Id_Category TINYINT NOT NULL
+﻿CREATE PROCEDURE [dbo].[DeleteCategory]
+    @Id_Category INT
 AS
 BEGIN
     -- Vérifier si la catégorie existe
@@ -8,7 +8,7 @@ BEGIN
         WHERE [Id_Category] = @Id_Category
     )
     BEGIN
-        SELECT CAST(0 AS BIT) AS Result, 'Erreur : Aucune catégorie trouvée avec cet ID.' AS ErrorMessage;
+        RAISERROR ('Erreur : Aucune catégorie trouvée avec cet ID.', 16, 1);
         RETURN;
     END
 
@@ -16,11 +16,23 @@ BEGIN
     BEGIN TRY
         DELETE FROM [dbo].[Category]
         WHERE [Id_Category] = @Id_Category;
-
-        SELECT CAST(1 AS BIT) AS Result;
     END TRY
 
     BEGIN CATCH
-        SELECT CAST(0 AS BIT) AS Result, 'Erreur lors de la suppression de la catégorie.' AS ErrorMessage;
+     DECLARE 
+            @ErrorMessage NVARCHAR(4000),
+            @ErrorSeverity INT,
+            @ErrorState INT;
+
+        SELECT
+            @ErrorMessage = ERROR_MESSAGE(),
+            @ErrorSeverity = ERROR_SEVERITY(),
+            @ErrorState = ERROR_STATE();
+
+        RAISERROR (
+            @ErrorMessage, -- Message text.
+            @ErrorSeverity, -- Severity.
+            @ErrorState -- State.
+        );
     END CATCH
 END;

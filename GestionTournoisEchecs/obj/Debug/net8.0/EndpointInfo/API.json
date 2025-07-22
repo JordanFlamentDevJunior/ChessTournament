@@ -442,10 +442,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "nameCategory": {
-            "type": "string",
-            "nullable": true
-          },
           "minAge": {
             "type": "integer",
             "format": "int32"
