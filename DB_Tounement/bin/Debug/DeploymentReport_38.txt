@@ -1,0 +1,36 @@
+﻿** Met en surbrillance
+     Tables qui seront recréées avec les données migrées
+       [dbo].[Place]
+     Index ordonnés en clusters à supprimer
+       Aucun
+     Index ordonnés en clusters à créer.
+       Aucun
+     Problèmes de données possibles
+       Aucun
+
+** Actions de l'utilisateur
+     Supprimer
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CK_Place_Address] (Contrainte de validation)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+     Recréer la table
+       [dbo].[Place] (Table)
+     Créer
+       [dbo].[CK_Place_Name] (Contrainte de validation)
+       [dbo].[CK_Place_Address] (Contrainte de validation)
+       [dbo].[CK_Category_MinAge] (Contrainte de validation)
+
+** Actions de support
+     Supprimer
+       [dbo].[FK_Tournament_Place] (Clé étrangère)
+     Créer
+       [dbo].[FK_Tournament_Place] (Clé étrangère)
+     Actualiser
+       [dbo].[CheckPlaceAddressExist] (Procédure)
+       [dbo].[CheckPlaceNameExist] (Procédure)
+       [dbo].[DeletePlace] (Procédure)
+       [dbo].[UpdatePlace] (Procédure)
+       [dbo].[AddPlace] (Procédure)
+
+Si ce déploiement est exécuté, les modifications de [dbo].[Place] risquent d'introduire des erreurs d'exécution dans [dbo].[CheckPlaceAdressExist].
+

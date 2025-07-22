@@ -4,11 +4,13 @@ using BLL.CategoryService;
 using BLL.GenderService;
 using BLL.RoleService;
 using BLL.StatusService;
+using BLL.PlaceService;
 
 using DAL.CategoryRepository;
-using DAL.Gender;
+using DAL.GenderRepository;
 using DAL.RoleRepository;
 using DAL.StatusRepository;
+using DAL.PlaceRepository;
 
 namespace API
 {
@@ -40,6 +42,8 @@ namespace API
             builder.Services.AddScoped<IRoleService, RoleService>();
             builder.Services.AddScoped<IStatusRepository, StatusRepository>();
             builder.Services.AddScoped<IStatusService, StatusService>();
+            builder.Services.AddScoped<IPlaceRepository, PlaceRepository>();
+            builder.Services.AddScoped<IPlaceService, PlaceService>();
 
             var app = builder.Build();
 

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Gender
+namespace DAL.GenderRepository
 {
     public class GenderRepository : RepositoryBase, IGenderRepository
     {

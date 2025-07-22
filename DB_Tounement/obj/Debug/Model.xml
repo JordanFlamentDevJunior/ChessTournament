@@ -523,25 +523,6 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[Place].[Id_Place]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Place]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
 								<References Name="[dbo].[Category].[Id_Category]" />
 							</Entry>
 						</Relationship>
@@ -553,7 +534,7 @@
 					<References Name="[dbo].[Category]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -572,7 +553,7 @@
 					<References Name="[dbo].[Gender]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -591,7 +572,7 @@
 					<References Name="[dbo].[Person]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -610,7 +591,7 @@
 					<References Name="[dbo].[Tournament]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -629,7 +610,7 @@
 					<References Name="[dbo].[Status]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -646,6 +627,25 @@
 			<Relationship Name="DefiningTable">
 				<Entry>
 					<References Name="[dbo].[Role]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Place].[Id_Place]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Place]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
@@ -1128,6 +1128,175 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[AddGender]&#xD;&#xA;    @Name_Gender NCHAR(5),&#xD;&#xA;    @Id_Gender INT OUTPUT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[AddPlace]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE 
+		@CleanedValueName NVARCHAR(100) = LOWER(TRIM(@Name_Place)),
+		@CleanedValueAddress NVARCHAR(500) = LOWER(TRIM(@Address)),
+		@conflictName BIT,
+		@conflictAddress BIT;
+
+	SET @Id_Place = (SELECT ISNULL(MAX([Id_Place]), 0) + 1 FROM [dbo].[Place]);
+
+	-- Vérifier si le nom de lieu existe déjà
+	EXEC @conflictName = CheckPlaceNameExist @Id_Place, @CleanedValueName;
+	IF @conflictName = 1
+	BEGIN
+		RAISERROR ('Erreur : Un lieu avec ce nom existe déjà.', 16, 1);
+		RETURN;
+	END
+
+	-- Vérifier si l'adresse existe déjà
+	EXEC @conflictAddress = CheckPlaceAddressExist @Id_Place, @CleanedValueAddress;
+	IF @conflictAddress = 1
+	BEGIN
+		RAISERROR ('Erreur : Un lieu avec cette addresse existe déjà.', 16, 1);
+		RETURN;
+	END
+
+	-- Insertion sécurisée
+	BEGIN TRY
+		INSERT INTO [dbo].[Place] ([Id_Place], [Name_Place], [Address])
+		VALUES (@Id_Place, @CleanedValueName, @CleanedValueAddress);
+
+		SELECT @Id_Place AS Id_Place;
+	END TRY
+
+	BEGIN CATCH
+		 DECLARE 
+			@ErrorMessage NVARCHAR(4000),
+			@ErrorSeverity INT,
+			@ErrorState INT;
+		SELECT
+			@ErrorMessage = ERROR_MESSAGE(),
+			@ErrorSeverity = ERROR_SEVERITY(),
+			@ErrorState = ERROR_STATE();
+		RAISERROR (
+			@ErrorMessage, -- Message text.
+			@ErrorSeverity, -- Severity.
+			@ErrorState -- State.
+		);
+	END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddPlace].[@Name_Place]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddPlace].[@Address]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bit]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bit]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[AddPlace].[@Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceNameExist]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceAddressExist]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Name_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Address]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddPlace].[@Name_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddPlace].[@Address]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[AddPlace].[@Id_Place]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1445" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[AddPlace]&#xD;&#xA;&#x9;@Name_Place NVARCHAR(100),&#xD;&#xA;&#x9;@Address NVARCHAR(500),&#xD;&#xA;&#x9;@Id_Place INT OUTPUT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[AddRole]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -1431,7 +1600,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="33" />
+						<AttachedAnnotation Disambiguator="32" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1752,6 +1921,164 @@ END;]]></Value>
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CheckGenNameExists]&#xD;&#xA;    @ExcludeId INT,&#xD;&#xA;    @Name NCHAR(5)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[CheckPlaceAddressExist]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	IF EXISTS (
+		SELECT 1 
+		FROM [dbo].[Place]
+		WHERE [Address] = @Address
+		AND [Id_Place] <> @Id_Place
+	)
+	BEGIN
+		RETURN 1; -- Addresse de lieu existe déjà
+	END
+	RETURN 0; -- Addresse de lieu n'existe pas
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Address]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceAddressExist].[@Address]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceAddressExist].[@Id_Place]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckPlaceAddressExist].[@Id_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckPlaceAddressExist].[@Address]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="324" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CheckPlaceAddressExist]&#xD;&#xA;&#x9;@Id_Place INT,&#xD;&#xA;&#x9;@Address NVARCHAR(500)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[CheckPlaceNameExist]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	IF EXISTS (
+		SELECT 1 
+		FROM [dbo].[Place]
+		WHERE [Name_Place] = @Name_Place
+		AND [Id_Place] <> @id_Place
+	)
+	BEGIN
+		RETURN 1; -- Nom de lieu existe déjà
+	END
+	return 0; -- Nom de lieu n'existe pas
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Name_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceNameExist].[@Name_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceNameExist].[@id_Place]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckPlaceNameExist].[@id_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CheckPlaceNameExist].[@Name_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="320" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[CheckPlaceNameExist]&#xD;&#xA;&#x9;@id_Place INT,&#xD;&#xA;&#x9;@Name_Place NVARCHAR(100)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[CheckRolNameExist]">
@@ -2375,13 +2702,13 @@ END;]]></Value>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="72" />
 		</Element>
-		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_Place_Adress]">
+		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_Place_Address]">
 			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[LEN([Adresse]) BETWEEN 7 AND 500]]></Value>
+				<Value><![CDATA[LEN([Address]) BETWEEN 7 AND 500]]></Value>
 			</Property>
 			<Relationship Name="CheckExpressionDependencies">
 				<Entry>
-					<References Name="[dbo].[Place].[Adresse]" />
+					<References Name="[dbo].[Place].[Address]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -2393,11 +2720,11 @@ END;]]></Value>
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CK_Place_Name]">
 			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[LEN([Nom]) BETWEEN 3 AND 100]]></Value>
+				<Value><![CDATA[LEN([Name_Place]) BETWEEN 2 AND 100]]></Value>
 			</Property>
 			<Relationship Name="CheckExpressionDependencies">
 				<Entry>
-					<References Name="[dbo].[Place].[Nom]" />
+					<References Name="[dbo].[Place].[Name_Place]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -2796,6 +3123,96 @@ END;]]></Value>
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[DeleteCategory]&#xD;&#xA;    @Id_Category INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[DeletePlace]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	-- Vérifier si le lieu existe
+	IF NOT EXISTS (
+		SELECT 1 FROM [dbo].[Place]
+		WHERE [Id_Place] = @Id_Place
+	)
+	BEGIN
+		RAISERROR ('Erreur : Aucun lieu trouvé avec cet ID.', 16, 1);
+		RETURN;
+	END
+
+	-- Suppression
+	BEGIN TRY
+		DELETE FROM [dbo].[Place]
+		WHERE [Id_Place] = @Id_Place;
+	END TRY
+
+	BEGIN CATCH
+		 DECLARE 
+			@ErrorMessage NVARCHAR(4000),
+			@ErrorSeverity INT,
+			@ErrorState INT;
+		SELECT
+			@ErrorMessage = ERROR_MESSAGE(),
+			@ErrorSeverity = ERROR_SEVERITY(),
+			@ErrorState = ERROR_STATE();
+		RAISERROR (
+			@ErrorMessage, -- Message text.
+			@ErrorSeverity, -- Severity.
+			@ErrorState -- State.
+		);
+	END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[DeletePlace].[@Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[DeletePlace].[@Id_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="734" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[DeletePlace]&#xD;&#xA;&#x9;@Id_Place INT&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[DeleteRole]">
@@ -3227,7 +3644,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="34" />
+						<AttachedAnnotation Disambiguator="33" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3593,7 +4010,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="35" />
+						<AttachedAnnotation Disambiguator="34" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3863,11 +4280,11 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="32" />
+						<AttachedAnnotation Disambiguator="38" />
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSimpleColumn" Name="[dbo].[Place].[Nom]">
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Place].[Name_Place]">
 						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
@@ -3884,7 +4301,7 @@ END;]]></Value>
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSimpleColumn" Name="[dbo].[Place].[Adresse]">
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Place].[Address]">
 						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
@@ -3926,7 +4343,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="38" />
+						<AttachedAnnotation Disambiguator="37" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -4063,7 +4480,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="37" />
+						<AttachedAnnotation Disambiguator="36" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -4108,7 +4525,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="36" />
+						<AttachedAnnotation Disambiguator="35" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -4518,6 +4935,192 @@ END;]]></Value>
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[UpdateCategory]&#xD;&#xA;    @Id_Category INT,&#xD;&#xA;    @MinAge INT,&#xD;&#xA;    @MaxAge INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[UpdatePlace]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN 
+	DECLARE 
+	@CleanedValueName NVARCHAR(100) = LOWER(TRIM(@Name_Place)),
+	@CleanedValueAddress NVARCHAR(500) = LOWER(TRIM(@Address)),
+	@CurrentName NVARCHAR(100),
+	@CurrentAddress NVARCHAR(500),
+	@conflictName BIT,
+	@conflictAddress BIT;
+
+	SELECT
+		@CurrentName = [Name_Place],
+		@CurrentAddress = [Address]
+	FROM [dbo].[Place]
+	WHERE [Id_Place] = @Id_Place;
+
+	-- Vérifier si une modification est nécessaire
+	IF @CurrentName = @CleanedValueName AND @CurrentAddress = @CleanedValueAddress
+	BEGIN
+		RAISERROR ('Aucune modification à apporter : les valeurs sont identiques.', 16, 1);
+		RETURN;
+	END
+
+	-- Vérifier si le nom de lieu existe déjà
+	EXEC @conflictName = CheckPlaceNameExist @Id_Place, @CleanedValueName;
+	IF @conflictName = 1
+	BEGIN
+		RAISERROR ('Erreur : Un lieu avec ce nom existe déjà.', 16, 1);
+		RETURN;
+	END
+
+	-- Vérifier si l'adresse existe déjà
+	EXEC @conflictAddress = CheckPlaceAddressExist @Id_Place, @CleanedValueAddress;
+	IF @conflictAddress = 1
+	BEGIN
+		RAISERROR ('Erreur : Un lieu avec cette addresse existe déjà.', 16, 1);
+		RETURN;
+	END
+
+	-- Mise à jour sécurisée
+	BEGIN TRY
+		UPDATE [dbo].[Place]
+			SET [Name_Place] = @CleanedValueName,
+				[Address] = @CleanedValueAddress
+			WHERE [Id_Place] = @Id_Place;
+	END TRY
+
+	BEGIN CATCH
+		 DECLARE 
+			@ErrorMessage NVARCHAR(4000),
+			@ErrorSeverity INT,
+			@ErrorState INT;
+		
+		SELECT
+			@ErrorMessage = ERROR_MESSAGE(),
+			@ErrorSeverity = ERROR_SEVERITY(),
+			@ErrorState = ERROR_STATE();
+		
+		RAISERROR (
+			@ErrorMessage, -- Message text.
+			@ErrorSeverity, -- Severity.
+			@ErrorState -- State.
+		 );
+	END CATCH
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UpdatePlace].[@Name_Place]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UpdatePlace].[@Address]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bit]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[bit]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Name_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Address]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Place].[Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[UpdatePlace].[@Id_Place]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceNameExist]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CheckPlaceAddressExist]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[UpdatePlace].[@Id_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[UpdatePlace].[@Name_Place]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[UpdatePlace].[@Address]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="500" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1775" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[UpdatePlace]&#xD;&#xA;&#x9;@Id_Place INT,&#xD;&#xA;&#x9;@Name_Place NVARCHAR(100),&#xD;&#xA;&#x9;@Address NVARCHAR(500)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlView" Name="[dbo].[ViewCategory]">

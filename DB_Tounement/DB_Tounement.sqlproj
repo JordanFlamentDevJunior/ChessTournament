@@ -96,6 +96,11 @@
     <Build Include="Stored Procedures\Status\SP_AddStatus.sql" />
     <Build Include="Stored Procedures\Status\SP_DeleteStatus.sql" />
     <Build Include="Stored Procedures\Status\CheckStatNameExist.sql" />
+    <Build Include="Stored Procedures\Place\SP_AddPlace.sql" />
+    <Build Include="Stored Procedures\Place\SP_UpdatePlace.sql" />
+    <Build Include="Stored Procedures\Place\DeletePlace.sql" />
+    <Build Include="Stored Procedures\Place\CheckPlaceNameExist.sql" />
+    <Build Include="Stored Procedures\Place\CheckPlaceAdressExist.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB_Tounement.publish.xml" />

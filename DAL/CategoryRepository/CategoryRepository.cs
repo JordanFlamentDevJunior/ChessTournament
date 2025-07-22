@@ -117,8 +117,7 @@ namespace DAL.CategoryRepository
            
             // fermer la connexion quoi qu'il arrive
             await ConnectionResetAsync();
-            return newId;
-            
+            return newId; 
         }
         #endregion
 

@@ -20,28 +20,28 @@ namespace BLL.StatusService
         public async Task<IEnumerable<StatusFull>> GetAll()
         {
             if (_repository == null)
-                throw new BusinessException("Role repository is not available.");
+                throw new BusinessException("Status repository is not available.");
 
             return await _repository.GetAll();
         }
         public async Task<StatusFull> GetById(int id)
         {
             if (_repository == null)
-                throw new BusinessException("Role repository is not available.");
+                throw new BusinessException("Status repository is not available.");
 
             return await _repository.GetById(id);
         }
         public async Task<int> Add(AddStatus status)
         {
             if (_repository == null)
-                throw new BusinessException("Role repository is not available.");
+                throw new BusinessException("Status repository is not available.");
 
             return await _repository.Add(status);
         }
         public async Task<bool> Delete(int id)
         {
             if (_repository == null)
-                throw new BusinessException("Role repository is not available.");
+                throw new BusinessException("Status repository is not available.");
 
             return await _repository.Delete(id);
         }

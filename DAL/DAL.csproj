@@ -21,7 +21,6 @@
     <Folder Include="MeetingRepository\" />
     <Folder Include="ParticipationRepository\" />
     <Folder Include="PersonRepository\" />
-    <Folder Include="PlaceRepository\" />
     <Folder Include="TournamentRepository\" />
   </ItemGroup>
 

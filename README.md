@@ -19,3 +19,8 @@ Gestion de tournois de jeu d'échecs
 ~ Status 
     Status accepté : "waiting", "ongoing", "finished", "canceled".
     /!\ - Un role ne peut être entré qu'une fois.
+
+~ Place 
+    Place accepté : nom chaine entre 2 et 100 charactères.
+                    adress chaine entre 7 et 500 charactères.
+    /!\ - Une place ne peut être entré qu'une fois (specificité = nom + adresse / adresse).

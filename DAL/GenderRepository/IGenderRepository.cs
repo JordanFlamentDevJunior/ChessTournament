@@ -1,6 +1,6 @@
 ﻿using Models.Gender;
 
-namespace DAL.Gender
+namespace DAL.GenderRepository
 {
     public interface IGenderRepository
     {

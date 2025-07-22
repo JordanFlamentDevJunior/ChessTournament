@@ -17,7 +17,6 @@
     <Folder Include="MeetingService\" />
     <Folder Include="ParticipationService\" />
     <Folder Include="PersonService\" />
-    <Folder Include="PlaceService\" />
     <Folder Include="TournamentService\" />
   </ItemGroup>
 
