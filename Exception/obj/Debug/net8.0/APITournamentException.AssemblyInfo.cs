@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APITournamentException")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+336cb846837b72ecc8231c490330b3d51368396b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73410c919c6912b3189f93681bd913ba8ae729bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("APITournamentException")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APITournamentException")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

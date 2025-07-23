@@ -20,7 +20,6 @@
     <Folder Include="HistoricTournamentRepository\" />
     <Folder Include="MeetingRepository\" />
     <Folder Include="ParticipationRepository\" />
-    <Folder Include="PersonRepository\" />
     <Folder Include="TournamentRepository\" />
   </ItemGroup>
 

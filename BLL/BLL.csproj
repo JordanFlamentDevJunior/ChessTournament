@@ -16,7 +16,6 @@
     <Folder Include="HistoricTournamentService\" />
     <Folder Include="MeetingService\" />
     <Folder Include="ParticipationService\" />
-    <Folder Include="PersonService\" />
     <Folder Include="TournamentService\" />
   </ItemGroup>
 

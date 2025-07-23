@@ -10,7 +10,6 @@
     <Folder Include="HistoricTournament\" />
     <Folder Include="Meeting\" />
     <Folder Include="Tournament\" />
-    <Folder Include="Person\" />
     <Folder Include="Participation\" />
   </ItemGroup>
 

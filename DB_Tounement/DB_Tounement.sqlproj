@@ -101,6 +101,11 @@
     <Build Include="Stored Procedures\Place\DeletePlace.sql" />
     <Build Include="Stored Procedures\Place\CheckPlaceNameExist.sql" />
     <Build Include="Stored Procedures\Place\CheckPlaceAdressExist.sql" />
+    <Build Include="Stored Procedures\Person\SP_AddPerson.sql" />
+    <Build Include="Stored Procedures\Person\SP_UpdatePerson.sql" />
+    <Build Include="Stored Procedures\Person\SP_DeletePerson.sql" />
+    <Build Include="Stored Procedures\Person\CheckPersonPseudoExist.sql" />
+    <Build Include="Stored Procedures\Person\CheckPersonEmailExist.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB_Tounement.publish.xml" />

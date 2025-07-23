@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Person]
 (
-	[Id_Person] INT NOT NULL PRIMARY KEY, 
+	[Id_Person] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [Pseudo] NCHAR(100) NOT NULL UNIQUE, 
     [Gender] INT NOT NULL, 
     [Mail] NCHAR(300) NOT NULL UNIQUE, -- sera soumi a une regex pour validation                                  ++tard

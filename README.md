@@ -24,3 +24,37 @@ Gestion de tournois de jeu d'échecs
     Place accepté : nom chaine entre 2 et 100 charactères.
                     adress chaine entre 7 et 500 charactères.
     /!\ - Une place ne peut être entré qu'une fois (specificité = nom + adresse / adresse).
+
+~ Person
+    3 Model : Add, Update, full
+    Add ajoute les nouvelle personne avec les données suivantes ;
+        - pseudo (caractère entre 3 et 100 charac)
+        - genre int (0 = "femme", 1 = "homme", 2 = "autre")
+        - email (chaine entre 5 et 300 charac)
+        - password (chaine entre 8 et 1000 charac)
+        - BirthDate (inférieur a 120 ans et supérieur a 10 ans)
+        - role int (0 = "checkmate", 1 = "player", 2 = "user")
+        - Elo int
+
+    Update met a jour les données du joueur sur base de son Id;
+        - Elo
+        - NbrPartPlayed
+        - NbrPartWin
+        - NbrPartLost
+        - NbrPartDraw
+        - Score
+
+    full récupère toutes les informations du joueur ;
+        - IdPerson
+        - Pseudo
+        - Gender
+        - Mail
+        - DateOfBirth
+        - DateRegist
+        - Role
+        - Elo
+        - NbrPartPlayed
+        - NbrPartWin
+        - NbrPartLost
+        - NbrPartDraw
+        - Score

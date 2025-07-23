@@ -133,7 +133,6 @@ namespace API.Controllers
         #endregion
 
         #region Delete
-
         // DELETE api/<CategoryController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
